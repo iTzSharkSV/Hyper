@@ -9,8 +9,8 @@ const { promisify } = require('util');
 const { projectInstall } = require('pkg-install');
 
 // Imports:
-const Log = require('./Utils/Log');
-const cli = require('./Cli');
+const Log = require('../Utils/Log');
+const cli = require('../Cli');
 const flags = cli.flags;
 const { runInstall } = flags;
 
@@ -18,9 +18,7 @@ const copy = promisify(ncp);
 const writeFile = promisify(fs.writeFile);
 
 // Options:
-const _Name = 'Author';
-const _Email = 'me@Example.com';
-const templateDir = path.join(__dirname, '../Template');
+const templateDir = path.join(__dirname, '../../Template');
 const currentDir = process.cwd();
 
 // Methods:
@@ -30,11 +28,11 @@ copyTemplateFiles = async () => {
 	});
 };
 
-createLicense = async () => {
+createLicense = async options => {
 	const targetPath = path.join(currentDir, 'LICENSE');
 	const licenseContent = mitLicense.licenseText
 		.replace('<year>', new Date().getFullYear())
-		.replace('<copyright holders>', `${_Name} (${_Email})`);
+		.replace('<copyright holders>', `${options.name} (${options.email})`);
 	return writeFile(targetPath, licenseContent, 'utf8');
 };
 
@@ -47,7 +45,7 @@ initGit = async () => {
 		: Promise.resolve();
 };
 
-module.exports = createProject = async () => {
+module.exports = createProject = async options => {
 	const Tasks = new Listr(
 		[
 			{
@@ -56,11 +54,13 @@ module.exports = createProject = async () => {
 			},
 			{
 				title: 'Initialize git',
-				task: () => initGit()
+				task: () => initGit(),
+				enabled: () => options.git
 			},
 			{
 				title: 'Create a license',
-				task: () => createLicense()
+				task: () => createLicense(options),
+				enabled: () => options.license
 			},
 			{
 				title: 'Install dependencies',

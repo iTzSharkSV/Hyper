@@ -23,7 +23,7 @@ const flags = {
 		type: `boolean`,
 		default: false,
 		alias: `i`,
-		desc: `Automatically install dependencies`
+		desc: `Install dependencies`
 	}
 };
 

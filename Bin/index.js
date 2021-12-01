@@ -9,7 +9,7 @@
 
 const info = require('../Lib/Info.js');
 const cli = require('../Lib/Cli');
-const cProject = require('../Lib/Init');
+const Init = require('../Lib/Init');
 const Log = require('../Lib/Utils/Log');
 
 const input = cli.input;
@@ -20,7 +20,7 @@ const { clear, debug } = flags;
 	info({ clear });
 	// Commands
 	input.includes(`help`) && cli.showHelp(0);
-	input.includes(`init`) && cProject();
+	input.includes(`init`) && Init();
 	// Flags
-	debug && Log('warning', '') & console.table(flags);
+	debug && Log('warning', 'You Sneaky!') & console.table(flags);
 })();
