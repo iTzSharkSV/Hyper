@@ -5,6 +5,9 @@ A CLI to bootstrap new projects!
 ## Installing
 
 ```bash
+npm install -g @sharksv/hyper
+
+# alternatively through github registry
 npm install -g @itzsharksv/hyper
 ```
 
