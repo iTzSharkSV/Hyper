@@ -9,30 +9,30 @@ const { promisify } = require('util');
 const { projectInstall } = require('pkg-install');
 
 // Imports:
-const Log = require('../Utils/Log');
+const Print = require('../Utils/Print');
 const cli = require('../Cli');
-const flags = cli.flags;
-const { runInstall } = flags;
 
 const copy = promisify(ncp);
 const writeFile = promisify(fs.writeFile);
 
-// Options:
-const templateDir = path.join(__dirname, '../../Template');
+// Global variables:
 const currentDir = process.cwd();
 
-// Methods:
+// Functions:
 copyTemplateFiles = async () => {
+	const { Template } = options;
+	const templateDir = path.join(__dirname, '../../Templates', Template);
 	return copy(templateDir, currentDir, {
 		clobber: true
 	});
 };
 
-createLicense = async options => {
+createLicense = async () => {
+	const { Name, Email } = options;
 	const targetPath = path.join(currentDir, 'LICENSE');
 	const licenseContent = mitLicense.licenseText
 		.replace('<year>', new Date().getFullYear())
-		.replace('<copyright holders>', `${options.name} (${options.email})`);
+		.replace('<copyright holders>', `${Name} (${Email})`);
 	return writeFile(targetPath, licenseContent, 'utf8');
 };
 
@@ -45,41 +45,49 @@ initGit = async () => {
 		: Promise.resolve();
 };
 
-module.exports = createProject = async options => {
-	const Tasks = new Listr(
-		[
-			{
-				title: 'Copy project files',
-				task: () => copyTemplateFiles()
-			},
-			{
-				title: 'Initialize git',
-				task: () => initGit(),
-				enabled: () => options.git
-			},
-			{
-				title: 'Create a license',
-				task: () => createLicense(options),
-				enabled: () => options.license
-			},
-			{
-				title: 'Install dependencies',
-				task: () =>
-					projectInstall({
-						cwd: currentDir
-					}),
-				skip: () =>
-					!runInstall
-						? 'Pass -i to automatically install dependencies'
-						: undefined
-			}
-		],
-		{
-			exitOnError: false
-		}
-	);
+createProject = async (options) => {
+	const { Git, License } = options;
+	const flags = cli.flags;
+	const { runInstall } = flags;
 
-	await Tasks.run();
-	Log('success', 'Project initilized successfully!');
-	return true;
+	const Todo = [
+		{
+			title: 'Copy project files',
+			task: () => copyTemplateFiles(options)
+		},
+		{
+			title: 'Initialize git',
+			task: () => initGit(),
+			enabled: () => Git
+		},
+		{
+			title: 'Create a license',
+			task: () => createLicense(options),
+			enabled: () => License
+		},
+		{
+			title: 'Install dependencies',
+			task: () =>
+				projectInstall({
+					cwd: currentDir
+				}),
+			skip: () =>
+				!runInstall
+					? 'Pass -i to automatically install dependencies'
+					: undefined
+		}
+	];
+
+	const Tasks = new Listr(Todo, {
+		exitOnError: false
+	});
+
+	try {
+		await Tasks.run();
+		Print('success', 'Project initilized successfully!');
+	} catch (error) {
+		Print('error', 'An error occured while initializing the project.');
+	}
 };
+
+module.exports = createProject;

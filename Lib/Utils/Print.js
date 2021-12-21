@@ -1,7 +1,7 @@
 const alert = require('cli-alerts');
 
-module.exports = (funcType, info) => {
-	let name = '';
+Print = (funcType, info) => {
+	let name;
 
 	switch (funcType) {
 		case 'success':
@@ -11,7 +11,7 @@ module.exports = (funcType, info) => {
 			name = 'Fail';
 			break;
 		case 'warning':
-			name = 'Log';
+			name = 'Attention';
 			break;
 		default:
 			name = 'Info';
@@ -23,3 +23,5 @@ module.exports = (funcType, info) => {
 		msg: info
 	});
 };
+
+module.exports = Print;

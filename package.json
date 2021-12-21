@@ -1,7 +1,7 @@
 {
 	"name": "@itzsharksv/hyper",
 	"description": "A CLI to bootstrap new projects!",
-	"version": "1.0.0",
+	"version": "1.2.0",
 	"license": "MIT",
 	"main": "Bin/index.js",
 	"bin": {

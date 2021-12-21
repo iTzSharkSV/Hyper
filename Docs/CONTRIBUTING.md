@@ -22,4 +22,4 @@ These guidelines will ensure the pull request process is easy and traceable for 
 1.  Increase the version number in package.json and create new entry at the beginning of [CHANGELOG](../CHANGELOG.md). Entries in the changelog file should be quick bullet points of the items changed, not just commit messages. The versioning scheme we use is [SemVer](http://semver.org/).
 2.  Submit the pull request. A maintainer will review the changes contact you with any followup actions.
 
-#### Contact [SharkSV](mailto:support@SharkSV.engineer) with any questions
+#### Contact [Shorky](mailto:SharkSV@outlook.com) with any questions
