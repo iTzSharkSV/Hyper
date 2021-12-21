@@ -8,12 +8,6 @@ const flags = {
 		alias: `c`,
 		desc: `Clear the console`
 	},
-	debug: {
-		type: `boolean`,
-		default: false,
-		alias: `d`,
-		desc: `Print debug info`
-	},
 	version: {
 		type: `boolean`,
 		alias: `v`,

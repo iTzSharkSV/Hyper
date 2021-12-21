@@ -9,18 +9,22 @@
 
 const info = require('../Lib/Info.js');
 const cli = require('../Lib/Cli');
-const Init = require('../Lib/Init');
-const Log = require('../Lib/Utils/Log');
+const cProject = require('../Lib/Init/cProject');
+const Prompt = require('../Lib/Init/Prompt');
 
 const input = cli.input;
 const flags = cli.flags;
-const { clear, debug } = flags;
+const { clear } = flags;
+
+Init = async () => {
+	options = await Prompt();
+	info();
+	await cProject(options);
+};
 
 (async () => {
 	info({ clear });
 	// Commands
 	input.includes(`help`) && cli.showHelp(0);
 	input.includes(`init`) && Init();
-	// Flags
-	debug && Log('warning', 'You Sneaky!') & console.table(flags);
 })();

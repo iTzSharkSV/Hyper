@@ -1,53 +1,61 @@
 const inquirer = require('inquirer');
 
-module.exports = PFO = async options => {
-	// Options:
+Prompt = async (options) => {
+	// Placeholders:
 	const _Name = 'Author';
 	const _Email = 'me@Example.com';
-	const questions = [];
+	const _Template = 'Javascript';
 
-	if (!options.name) {
-		questions.push({
-			type: 'input',
-			name: 'name',
-			message: "Author's Name",
-			default: _Name
-		});
-	}
+	// Questions
+	let Template, Name, Email, Git, License;
 
-	if (!options.email) {
-		questions.push({
-			type: 'input',
-			name: 'email',
-			message: 'Public Email',
-			default: _Email
-		});
-	}
+	Template = {
+		type: 'list',
+		name: 'template',
+		message: 'Project Template:',
+		choices: ['Javascript', 'Typescript'],
+		default: _Template
+	};
 
-	if (!options.git) {
-		questions.push({
-			type: 'confirm',
-			name: 'git',
-			message: 'Initilize Git?',
-			default: true
-		});
-	}
+	Name = {
+		type: 'input',
+		name: 'name',
+		message: "Author's Name:",
+		default: _Name
+	};
 
-	if (!options.license) {
-		questions.push({
-			type: 'confirm',
-			name: 'license',
-			message: 'Create a License?',
-			default: true
-		});
-	}
+	Email = {
+		type: 'input',
+		name: 'email',
+		message: 'Public Email:',
+		default: _Email
+	};
 
+	Git = {
+		type: 'confirm',
+		name: 'git',
+		message: 'Initilize Git?',
+		default: true
+	};
+
+	License = {
+		type: 'confirm',
+		name: 'license',
+		message: 'Create a License?',
+		default: true
+	};
+
+	const questions = [Template, Name, Email, Git, License];
 	const answers = await inquirer.prompt(questions);
+
 	return {
 		...options,
-		name: options.name || answers.name,
-		email: options.email || answers.email,
-		git: options.git || answers.git,
-		license: options.license || answers.license
+		Template: answers.template,
+		Name: answers.name,
+		Email: answers.email,
+		Git: answers.git,
+		License: answers.license
 	};
 };
+
+module.exports = Prompt;
