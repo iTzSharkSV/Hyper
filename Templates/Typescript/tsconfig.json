@@ -19,9 +19,7 @@
     "noImplicitThis": false,
     "strictNullChecks": false,
     "rootDir": "Src",
-    "outDir": "Build",
+    "outDir": "Build"
   },
-  "exclude": [ 
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
