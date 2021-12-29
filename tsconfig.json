@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		"target": "es2021",
+		"outDir": "Build",
+		"rootDir": "Lib",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"declaration": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+
+		// Checks
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+
+		// Debugging Options
+		"traceResolution": false,
+		"listEmittedFiles": false,
+		"listFiles": false,
+		"pretty": true,
+
+		"types": ["node"]
+	},
+	"include": ["Lib"],
+	"exclude": ["node_modules"]
+}

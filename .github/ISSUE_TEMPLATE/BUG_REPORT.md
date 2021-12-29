@@ -23,7 +23,7 @@ If applicable, add screenshots to help explain your problem.
 **Additional information (please complete the following information):**
 
 -   OS: [e.g. Mac High Sierra, Ubuntu 18.04, Windows 10]
--   rVersion [e.g. Hyper 1.0.1]
+-   Version [e.g. Hyper 1.0.1]
 
 **Additional context**
 Add any other context about the problem here.

@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+/**
+ * Hyper
+ * A Cli to bootstrap new projects!
+ *
+ * @author SharkSV <https://github.com/iTzSharkSV>
+ */
+
+require('../Build/Cli')
