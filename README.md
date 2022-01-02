@@ -2,6 +2,8 @@
 
 A CLI to bootstrap new projects!
 
+Generate an Advanced Project Template in seconds.
+
 ## Installing
 
 ```bash
@@ -11,6 +13,10 @@ yarn global add @sharksv/hyper
 ```
 
 ## Usage/Examples
+
+```bash
+$ hyper <commands> [options]
+```
 
 ```bash
 # Show help

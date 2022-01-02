@@ -5,17 +5,16 @@ const flags = Args.flags
 const { install, rainbow } = flags
 
 export async function inquire(): Promise<DistinctQuestion> {
-	const projectName: DistinctQuestion = {
+	const authorName: DistinctQuestion = {
 		type: 'input',
-		name: 'projName',
-		message: 'Project Name:',
-		default: 'Amazing-Name',
+		name: 'aName',
+		message: "Author's Name:",
+		default: 'Someone',
 		filter: (answer: string) => answer.trim()
 	}
 
 	enum pTemplate {
-		// Node = 'Node'
-		// Static = 'Static',
+		Static = 'Static',
 		Jumpstart = 'Jumpstart'
 	}
 
@@ -27,24 +26,7 @@ export async function inquire(): Promise<DistinctQuestion> {
 		choices: [
 			{ name: 'Jumpstart project', value: pTemplate.Jumpstart },
 			new Separator(),
-			{ name: 'Coming Soon', value: pTemplate.Jumpstart },
-			{ name: 'Coming Soon', value: pTemplate.Jumpstart }
-		]
-	}
-
-	enum pType {
-		Vanilla = 'Vanilla',
-		Abstract = 'Abstract'
-	}
-
-	const projectType: DistinctQuestion = {
-		type: 'list',
-		name: 'projType',
-		message: 'Project Type?',
-		default: pType.Vanilla,
-		choices: [
-			{ name: 'Vanilla Js', value: pType.Vanilla },
-			{ name: 'Abstract (Ts/Sass)', value: pType.Abstract }
+			{ name: 'Static site biolerplate', value: pTemplate.Static }
 		]
 	}
 
@@ -72,33 +54,11 @@ export async function inquire(): Promise<DistinctQuestion> {
 		default: true
 	}
 
-	enum Extras {
-		Travis = 'Travis',
-		License = 'License',
-		Workflows = 'Workflows'
-	}
-
-	const extraQuestions: DistinctQuestion = {
-		type: 'checkbox',
-		name: 'extras',
-		message: 'Extras!',
-		choices: [
-			{
-				checked: true,
-				name: 'Create a License',
-				value: Extras.License
-			},
-			{
-				checked: true,
-				name: 'Include GitHub Workflows',
-				value: Extras.Workflows
-			},
-			{
-				checked: false,
-				name: 'Include Travis-CI config',
-				value: Extras.Travis
-			}
-		]
+	const createLicense = {
+		type: 'confirm',
+		name: 'cLicense',
+		message: 'Create License?',
+		default: true
 	}
 
 	const areYou = {
@@ -110,12 +70,11 @@ export async function inquire(): Promise<DistinctQuestion> {
 	}
 
 	return prompt([
-		projectName,
+		authorName,
 		projectTemplate,
-		projectType,
 		packageManager,
 		initilizeGit,
-		extraQuestions,
+		createLicense,
 		areYou
 	])
 }

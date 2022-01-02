@@ -8,7 +8,7 @@ const {
 	yellow,
 	blueInverse,
 	greenInverse,
-	orangeInverse
+	yellowInverse
 } = Clrs
 
 const helpTxt = `
@@ -19,7 +19,7 @@ const helpTxt = `
     ${cyan('help')}   ${Dim('Print help info')}
     ${cyan('init')}   ${Dim('Initialize a new project')}
 
-    ${orangeInverse(` OPTIONS `)}\n
+    ${yellowInverse(` OPTIONS `)}\n
     ${yellow('-c, --clear')}     ${Dim('Clear terminal')}
     ${yellow('-v, --version')}   ${Dim('Print version')}
     ${yellow('-y, --install')}   ${Dim('Install dependencies')}

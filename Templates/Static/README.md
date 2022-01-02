@@ -10,7 +10,6 @@ This repository contains some example best practices for open source repositorie
 -   [README.md](README.md)
 -   [CONTRIBUTING.md](./Docs/CONTRIBUTING.md)
 -   [CHANGELOG.md](CHANGELOG.md)
--   [Travis.yml](.travis.yml) - This is a example `.travis.yml`, please take a look https://docs.travis-ci.com/user/tutorial/ for more details.
 
 ## Run Locally
 
@@ -38,18 +37,18 @@ class Example extends Something {
 		super({
 			name: 'example',
 			description: 'Example command'
-		});
+		})
 	}
 
 	async exec(interaction) {
 		return interaction.reply({
 			ephemeral: true,
 			content: 'Hallo!'
-		});
+		})
 	}
 }
 
-module.exports = Example;
+module.exports = Example
 ```
 
 ## Project Tree

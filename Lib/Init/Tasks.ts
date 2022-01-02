@@ -1,30 +1,26 @@
 import execa from 'execa'
 import { ncp } from 'ncp'
 import { join } from 'path'
+import { writeFile } from 'fs'
 import { Print } from '../Modules/Print'
+import { MIT } from './LicenseList.json'
 
 // Global variables
 const currentDir: string = process.cwd()
 
 // Functions
 export async function copyTemplateFiles(
-	Type: string,
 	Template: string,
 	overWriteFiles?: boolean
 ): Promise<void> {
-	const templateDir: string = join(
-		__dirname,
-		'../../Templates',
-		Type,
-		Template
-	)
+	const templateDir: string = join(__dirname, '../../Templates', Template)
 
 	ncp(
 		templateDir,
 		currentDir,
 		{ clobber: overWriteFiles || false },
 		(err: Error[] | null) => {
-			return err ? Print('error', err?.toString()) : null
+			return err ? Print('error', err.toString()) : null
 		}
 	)
 }
@@ -52,4 +48,15 @@ export async function iDependencies(pkgManager: string): Promise<void> {
 		default:
 			Print('error', "Couldn't install dependencies")
 	}
+}
+
+export async function createLicense(Author: string): Promise<void> {
+	const targetPath = join(currentDir, 'LICENSE')
+	const licenseContent = MIT.licenseTxt
+		.replace('<year>', `${new Date().getFullYear()}`)
+		.replace('<copyright holders>', `${Author}`)
+
+	return writeFile(targetPath, licenseContent, 'utf8', (err) => {
+		return err ? Print('error', err.toString()) : null
+	})
 }

@@ -12,7 +12,6 @@
 		"hyper": "Bin/Hyper"
 	},
 	"main": "Build/Cli.js",
-	"module": "Build/Cli.js",
 	"files": [
 		"Bin",
 		"Build",

@@ -12,7 +12,11 @@
 		"prettier"
 	],
 	"rules": {
-		"@typescript-eslint/consistent-type-definitions": ["error", "interface"]
+		"@typescript-eslint/consistent-type-definitions": [
+			"error",
+			"interface"
+		],
+		"@typescript-eslint/no-inferrable-types": "off"
 	},
 	"env": {
 		"browser": true,

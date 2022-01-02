@@ -3,30 +3,41 @@ import inquirer from 'inquirer'
 import { Args } from '../Args'
 import { inquire } from './Inquire'
 import { Print } from '../Modules/Print'
-import { copyTemplateFiles, initGit, iDependencies } from './Tasks'
-
-const flags = Args.flags
-const { install } = flags
+import {
+	copyTemplateFiles,
+	initGit,
+	iDependencies,
+	createLicense
+} from './Tasks'
 
 async function createProject(options: inquirer.Answers): Promise<void> {
-	// prettier-ignore
-	const { 
-		projTemplate, 
-		projType, 
-		gitInit, 
-		pkgManager 
+	const {
+		// Inquirer answers
+		aName,
+		projTemplate,
+		gitInit,
+		pkgManager,
+		cLicense
 	} = options
+
+	const flags = Args.flags
+	const { install } = flags
 
 	const Tasks = new Listr(
 		[
 			{
 				title: 'Copy project files',
-				task: () => copyTemplateFiles(projType, projTemplate)
+				task: () => copyTemplateFiles(projTemplate)
+			},
+			{
+				title: 'Create a License',
+				task: () => createLicense(aName),
+				skip: () => !cLicense
 			},
 			{
 				title: 'Initialize git',
 				task: () => initGit(),
-				enabled: () => gitInit
+				skip: () => !gitInit
 			},
 			{
 				title: 'Install dependencies',

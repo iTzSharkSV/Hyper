@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
 		"target": "es2021",
-		"outDir": "Build",
-		"rootDir": "Lib",
+		"outDir": "Dist/Js",
+		"rootDir": "Src/Ts",
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
@@ -21,10 +21,8 @@
 		"traceResolution": false,
 		"listEmittedFiles": false,
 		"listFiles": false,
-		"pretty": true,
-
-		"types": ["node"]
+		"pretty": true
 	},
-	"include": ["Lib"],
+	"include": ["Src/Ts"],
 	"exclude": ["node_modules"]
 }
