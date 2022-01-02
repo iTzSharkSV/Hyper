@@ -1,0 +1,32 @@
+{
+	"name": "@owner/project",
+	"description": "Brief description!",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "Src/index",
+	"author": {
+		"name": "author-name",
+		"email": "me@example.com",
+		"url": "https://example.com"
+	},
+	"keywords": [
+		"Cli",
+		"Example"
+	],
+	"scripts": {
+		"build": "tsc",
+		"build:dev": "tsc --watch",
+		"lint": "eslint --ignore-path .gitignore --ext .js,.ts .",
+		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"prepublish": "yarn lint && yarn format && yarn build"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.2",
+		"@typescript-eslint/eslint-plugin": "^5.8.0",
+		"@typescript-eslint/parser": "^5.8.0",
+		"eslint": "^8.5.0",
+		"eslint-config-prettier": "^8.3.0",
+		"prettier": "^2.5.1",
+		"typescript": "^4.5.4"
+	}
+}

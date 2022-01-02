@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "es2021",
+		"outDir": "Dist/Js",
+		"rootDir": "Src/Ts",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"declaration": false,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+
+		// Checks
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+
+		// Debugging Options
+		"traceResolution": false,
+		"listEmittedFiles": false,
+		"listFiles": false,
+		"pretty": true
+	},
+	"include": ["Src/Ts"],
+	"exclude": ["node_modules"]
+}

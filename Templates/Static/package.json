@@ -1,0 +1,28 @@
+{
+	"name": "@owner/project",
+	"description": "Brief description!",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "Src/index",
+	"author": {
+		"name": "author-name",
+		"email": "me@example.com",
+		"url": "https://example.com"
+	},
+	"keywords": [
+		"Site",
+		"Static",
+		"Biolerplate"
+	],
+	"scripts": {
+		"build": "tsc",
+		"build:dev": "tsc --watch",
+		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"prepublish": "yarn format && yarn build"
+	},
+	"devDependencies": {
+		"sass": "*",
+		"prettier": "*",
+		"typescript": "*"
+	}
+}
