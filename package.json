@@ -35,7 +35,7 @@
 	"scripts": {
 		"build": "tsc",
 		"build:dev": "tsc --watch",
-		"lint": "eslint --ignore-path .gitignore --ext .js,.ts .",
+		"lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
 		"prepublish": "yarn lint && yarn format && yarn build"
 	},

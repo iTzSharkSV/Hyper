@@ -1,0 +1,11 @@
+# NPM #
+##########
+node_modules
+
+# Compiled Files and Build Dirs #
+##########
+Build
+
+# Template Files #
+##########
+Templates
