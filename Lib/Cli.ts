@@ -9,7 +9,7 @@ import { Init } from './Init/cProject'
 		tagLine: 'by Shorky',
 		description: 'A CLI to bootstrap new projects!',
 		version: '2.0',
-		bgColor: '#36BB09',
+		bgColor: '',
 		bold: false,
 		clear: true
 	})

@@ -26,7 +26,7 @@ hyper help
 hyper init
 ```
 
-## Generated Project Tree
+## Sample Project Tree
 
 ```Txt
 📦 <Project>

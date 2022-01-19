@@ -57,22 +57,26 @@ export function Info(uOptions: object): void {
 	switch (bold) {
 		case true:
 			Dim = chalk.dim.bold
-			BG = chalk.hex(bgColor).inverse.bold
 			break
 		case false:
 			Dim = chalk.dim
-			BG = chalk.hex(bgColor).inverse
 			break
 	}
 
-	const cliVersion = version === '' ? '' : `v${version}`
+	switch (bgColor) {
+		case '':
+			BG = chalk.inverse.green
+			break
+		default:
+			BG = chalk.hex(bgColor).inverse
+	}
 
 	/** @param {boolean} clear - Clear the terminal before printing */
 	clear && Clear()
 
 	/** @returns */
 	console.log(
-		`\n${BG(` ${title} `)} ${cliVersion} ${Dim(tagLine)} \n${Dim(
+		`\n${BG(` ${title} `)} v${version} ${Dim(tagLine)} \n${Dim(
 			description
 		)}\n`
 	)

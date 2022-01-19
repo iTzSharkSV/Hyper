@@ -33,11 +33,46 @@
 	},
 	"license": "MIT",
 	"scripts": {
+		"prepare": "husky install",
 		"build": "tsc",
 		"build:dev": "tsc --watch",
-		"lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+		"lint": "eslint --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-		"prepublish": "yarn lint && yarn format && yarn build"
+		"prepublish": "yarn lint && yarn format"
+	},
+	"prettier": {
+		"trailingComma": "none",
+		"arrowParens": "always",
+		"singleQuote": true,
+		"printWidth": 80,
+		"useTabs": true,
+		"tabWidth": 4,
+		"semi": false
+	},
+	"eslintConfig": {
+		"root": true,
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"ecmaVersion": 12,
+			"sourceType": "module"
+		},
+		"extends": [
+			"plugin:@typescript-eslint/recommended",
+			"plugin:prettier/recommended"
+		],
+		"env": {
+			"es6": true,
+			"node": true
+		},
+		"ignorePatterns": [
+			"Build",
+			"node_modules"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run prepublish"
+		}
 	},
 	"dependencies": {
 		"chalk": "4.1.2",
@@ -57,6 +92,8 @@
 		"@typescript-eslint/parser": "^5.8.0",
 		"eslint": "^8.5.0",
 		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"husky": "^7.0.0",
 		"prettier": "^2.5.1",
 		"typescript": "^4.5.4"
 	}
