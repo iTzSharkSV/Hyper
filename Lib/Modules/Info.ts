@@ -1,5 +1,7 @@
-import chalk, { Chalk } from 'chalk'
+import { Chalk } from 'chalk'
 import { Clear } from './Clear'
+import { Clrs } from '../Utils/Clrs'
+const { Dim, BoldDim, greenInverse } = Clrs
 
 /**
  * 📟 Prints out an info header for Node.js CLIs
@@ -11,7 +13,6 @@ import { Clear } from './Clear'
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0',
- * 	bgColor: '#ffffff',
  * 	bold: false,
  * 	clear: true,
  * })
@@ -24,7 +25,6 @@ export function Info(uOptions: object): void {
 		tagLine: string
 		description: string
 		version: string
-		bgColor: string
 		bold: boolean
 		clear: boolean
 	}
@@ -34,7 +34,6 @@ export function Info(uOptions: object): void {
 		tagLine: 'Tagline',
 		description: 'Description',
 		version: '',
-		bgColor: '#ffffff',
 		bold: false,
 		clear: true
 	}
@@ -46,29 +45,19 @@ export function Info(uOptions: object): void {
 		tagLine,
 		description,
 		version,
-		bgColor,
 		bold,
 		clear
 	} = options
 
-	let Dim: Chalk
-	let BG: Chalk
+	let Dimmed: Chalk
 
 	switch (bold) {
 		case true:
-			Dim = chalk.dim.bold
+			Dimmed = BoldDim
 			break
 		case false:
-			Dim = chalk.dim
+			Dimmed = Dim
 			break
-	}
-
-	switch (bgColor) {
-		case '':
-			BG = chalk.inverse.green
-			break
-		default:
-			BG = chalk.hex(bgColor).inverse
 	}
 
 	/** @param {boolean} clear - Clear the terminal before printing */
@@ -76,8 +65,8 @@ export function Info(uOptions: object): void {
 
 	/** @returns */
 	console.log(
-		`\n${BG(` ${title} `)} v${version} ${Dim(tagLine)} \n${Dim(
-			description
-		)}\n`
+		`\n${greenInverse(` ${title} `)} v${version} ${Dimmed(
+			tagLine
+		)} \n${Dimmed(description)}\n`
 	)
 }

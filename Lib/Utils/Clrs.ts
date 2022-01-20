@@ -2,6 +2,7 @@ import chalk from 'chalk'
 
 export const Clrs = {
 	Dim: chalk.dim,
+	BoldDim: chalk.dim.bold,
 
 	// Clrs
 	red: chalk.red,
@@ -15,6 +16,5 @@ export const Clrs = {
 	blueInverse: chalk.bold.inverse.blue,
 	cyanInverse: chalk.bold.inverse.cyan,
 	greenInverse: chalk.bold.inverse.green,
-	yellowInverse: chalk.bold.inverse.yellow,
-	orangeInverse: chalk.bold.inverse.hex('#FFA500')
+	yellowInverse: chalk.bold.inverse.yellow
 }
