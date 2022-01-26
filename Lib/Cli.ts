@@ -8,8 +8,7 @@ import { Init } from './Init/cProject'
 		title: 'Hyper',
 		tagLine: 'by Shorky',
 		description: 'A CLI to bootstrap new projects!',
-		version: '2.0',
-		bgColor: '',
+		version: '2.1',
 		bold: false,
 		clear: true
 	})

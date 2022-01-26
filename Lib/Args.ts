@@ -18,9 +18,10 @@ const helpTxt = `
     ${blueInverse(` COMMANDS `)}\n
     ${cyan('help')}   ${Dim('Print help info')}
     ${cyan('init')}   ${Dim('Initialize a new project')}
+    ${cyan('ls')}     ${Dim('List available templates')}
 
     ${yellowInverse(` OPTIONS `)}\n
-    ${yellow('-c, --clear')}     ${Dim('Clear terminal')}
+    ${yellow('-c, --clear')}     ${Dim('Clear terminal (default)')}
     ${yellow('-v, --version')}   ${Dim('Print version')}
     ${yellow('-y, --install')}   ${Dim('Install dependencies')}
     ${yellow('-r, --rainbow')}   ${Dim('I wonder🏳️‍🌈')}

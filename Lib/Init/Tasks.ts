@@ -3,7 +3,7 @@ import { ncp } from 'ncp'
 import { join } from 'path'
 import { writeFile } from 'fs'
 import { Print } from '../Modules/Print'
-import { MIT } from './LicenseList.json'
+import { MIT } from './Json/LicenseList.json'
 
 // Global variables
 const currentDir: string = process.cwd()
