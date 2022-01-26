@@ -2,9 +2,17 @@
 
 A CLI to bootstrap new projects!
 
+---
+
 Generate an Advanced Project Template in seconds.
 
+## Prerequisites
+
+[Node.js](https://nodejs.org/en/) and npm are required as a peer dependency.
+
 ## Installing
+
+### From [`npmjs.com`](https://npmjs.com/package/@sharksv/hyper)
 
 ```bash
 npm install -g @sharksv/hyper
@@ -12,24 +20,58 @@ npm install -g @sharksv/hyper
 yarn global add @sharksv/hyper
 ```
 
+### Compile from source
+
+```bash
+$ git clone https://github.com/iTzSharkSV/Hyper.git
+$ cd Hyper
+$ npm install    # to install project dependencies
+$ npm run build  # to compile the project
+$ npm i -g .     # to add it as a global variable
+```
+
 ## Usage/Examples
 
 ```bash
-$ hyper <commands> [options]
+$ hyper help
+
+Hyper v2.1 by Shorky
+A CLI to bootstrap new projects!
+
+USAGE:
+    $ hyper <commands> [options]
+
+COMMANDS:
+    help          Prints usage-help info
+    init          Initialize a new project
+    ls            List available templates
+
+OPTIONS:
+    -c, --clear          Clear Terminal (on by Default)
+    -v, --version        Prints CLI version
+    -y, --install        Install project dependencies
+    -r, --rainbow        I wonder?!
 ```
+
+## Available Templates
 
 ```bash
-# Show help
-hyper help
-
-# Initilize a new project
-hyper init
+$ hyper ls
+---------------------------------------------------------
+LANGUAGE            Size(kb)   NAME
+---------------------------------------------------------
+(-)                 -          Jumpstart
+Typescript          -          Node-Proj
+Javascript          -          Static-Web
+Rust-Lang           -          Rust-Crate
+Java                -          Java-Proj (Coming soon)
+---------------------------------------------------------
 ```
 
-## Sample Project Tree
+## Sample Project Structure
 
 ```Txt
-📦 <Project>
+📦 <Node Project>
 ├─ .github
 │  ├─ ISSUE_TEMPLATE
 │  │  ├─ BUG_REPORT.md
@@ -47,9 +89,10 @@ hyper init
 │  │  └─ File 2
 │  └─ Another Folder Maybe
 │     └─ File 3
-├─ .eslintrc
 ├─ .gitignore
-├─ .prettierrc
+├─ .eslintrc    # Available within package.json
+├─ .prettierrc  # Available within package.json
+├─ .husky       # Available within package.json
 ├─ .travis.yml
 ├─ CHANGELOG.md
 ├─ Package.json

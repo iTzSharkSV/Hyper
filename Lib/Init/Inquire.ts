@@ -15,7 +15,9 @@ export async function inquire(): Promise<DistinctQuestion> {
 
 	enum pTemplate {
 		Static = 'Static',
-		Jumpstart = 'Jumpstart'
+		Jumpstart = 'Jumpstart',
+		Node = 'Node',
+		Rust = 'Rust'
 	}
 
 	const projectTemplate: DistinctQuestion = {
@@ -24,9 +26,14 @@ export async function inquire(): Promise<DistinctQuestion> {
 		message: 'Project Template?',
 		default: pTemplate.Jumpstart,
 		choices: [
-			{ name: 'Jumpstart project', value: pTemplate.Jumpstart },
+			{
+				name: 'Jumpstart (bootstrap existing projects)',
+				value: pTemplate.Jumpstart
+			},
 			new Separator(),
-			{ name: 'Static site biolerplate', value: pTemplate.Static }
+			{ name: 'A Node.js project', value: pTemplate.Node },
+			{ name: 'Static site biolerplate', value: pTemplate.Static },
+			{ name: 'Oxidized-C project (Rust)', value: pTemplate.Rust }
 		]
 	}
 

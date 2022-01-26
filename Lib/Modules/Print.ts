@@ -8,7 +8,7 @@ const {
 	redInverse,
 	blueInverse,
 	greenInverse,
-	orangeInverse
+	yellowInverse
 } = Clrs
 
 interface SymbolsInterface {
@@ -58,7 +58,7 @@ export function Print(type: string, msg?: string, title?: string): void {
 			Clr = red
 			break
 		case 'warning':
-			Inverse = orangeInverse
+			Inverse = yellowInverse
 			Sym = Symbols.Warning
 			Clr = yellow
 			break
