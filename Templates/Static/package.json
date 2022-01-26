@@ -15,14 +15,57 @@
 		"Biolerplate"
 	],
 	"scripts": {
+		"prepare": "husky install",
 		"build": "tsc",
 		"build:dev": "tsc --watch",
+		"lint": "eslint --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-		"prepublish": "yarn format && yarn build"
+		"prepublish": "yarn lint && yarn format"
+	},
+	"prettier": {
+		"trailingComma": "none",
+		"arrowParens": "always",
+		"singleQuote": true,
+		"printWidth": 80,
+		"useTabs": true,
+		"tabWidth": 4,
+		"semi": false
+	},
+	"eslintConfig": {
+		"root": true,
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"ecmaVersion": 12,
+			"sourceType": "module"
+		},
+		"extends": [
+			"plugin:@typescript-eslint/recommended",
+			"plugin:prettier/recommended"
+		],
+		"env": {
+			"es6": true,
+			"node": true
+		},
+		"ignorePatterns": [
+			"Build",
+			"node_modules"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run prepublish"
+		}
 	},
 	"devDependencies": {
+		"@types/node": "*",
+		"@typescript-eslint/eslint-plugin": "*",
+		"@typescript-eslint/parser": "*",
+		"eslint-config-prettier": "*",
+		"eslint-plugin-prettier": "*",
 		"sass": "*",
 		"prettier": "*",
+		"husky": "*",
+		"eslint": "*",
 		"typescript": "*"
 	}
 }

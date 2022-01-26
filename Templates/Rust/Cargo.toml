@@ -1,0 +1,17 @@
+[package]
+name = "Some-Name"
+version = "0.1.0"
+edition = "2018"
+authors = ["Someone"]
+description = "A brief description of the package"
+keywords = [
+    "Bootstraped",
+    "Created by Hyper",
+]
+license = "MIT"
+
+[[bin]]
+name = "Project-Name"
+path = "Lib/Main.rs"
+
+[dependencies]
