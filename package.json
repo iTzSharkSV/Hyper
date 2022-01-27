@@ -1,7 +1,7 @@
 {
 	"name": "@sharksv/hyper",
 	"description": "A CLI to bootstrap new projects!",
-	"version": "2.2.1",
+	"version": "2.2.3",
 	"keywords": [
 		"Cli",
 		"Hyper",

@@ -13,7 +13,7 @@ export async function copyTemplateFiles(
 	Template: string,
 	overWriteFiles?: boolean
 ): Promise<void> {
-	const templateDir: string = join(__dirname, '../../Templates', Template)
+	const templateDir: string = join(__dirname, '../../../Templates', Template)
 
 	ncp(
 		templateDir,
