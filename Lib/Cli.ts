@@ -1,6 +1,8 @@
 import { Info } from './Modules/Info'
 import { Args } from './Args'
 import { Init } from './Init/cProject'
+import updateNotifier from 'update-notifier'
+import pkg from '../package.json'
 
 // prettier-ignore
 (async (): Promise<void> => {
@@ -8,10 +10,15 @@ import { Init } from './Init/cProject'
 		title: 'Hyper',
 		tagLine: 'by Shorky',
 		description: 'A CLI to bootstrap new projects!',
-		version: '2.1',
+		version: pkg.version,
 		bold: false,
 		clear: true
 	})
+
+	updateNotifier({
+		pkg,
+		updateCheckInterval: 0,
+	}).notify({isGlobal: true})
 
 	const input: string[] = Args.input
 
