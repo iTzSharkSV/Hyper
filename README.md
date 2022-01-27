@@ -63,7 +63,7 @@ LANGUAGE          Size(kb)    NAME
 (-)               14.4        Jumpstart
 Typescript        15.0        Node-Proj
 Javascript        12.2        Static-Web
-Rust-Lang         0.56        Rust-Crate
+Rust-Lang         11.2        Rust-Crate
 Java              -           Java-Proj (Coming soon)
 ---------------------------------------------------------
 ```
