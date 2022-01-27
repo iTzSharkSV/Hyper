@@ -14,7 +14,7 @@
 	"main": "Build/Cli.js",
 	"files": [
 		"Bin",
-		"Build/Lib",
+		"Build/**/*",
 		"Templates",
 		"LICENSE",
 		"README.md"
