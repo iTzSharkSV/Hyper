@@ -35,7 +35,7 @@ $ npm i -g .     # to add it as a global variable
 ```bash
 $ hyper help
 
-Hyper v2.1 by Shorky
+Hyper v2.3 by Shorky
 A CLI to bootstrap new projects!
 
 USAGE:
@@ -49,6 +49,7 @@ COMMANDS:
 OPTIONS:
     -c, --clear          Clear Terminal (on by Default)
     -v, --version        Prints CLI version
+    -y, --default        Roll with default selection
     -y, --install        Install project dependencies
     -r, --rainbow        I wonder?!
 ```

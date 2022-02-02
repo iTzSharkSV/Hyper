@@ -1,8 +1,7 @@
-import chalk from 'chalk'
+import * as chalk from 'chalk';
 
-export const Clrs = {
-	Dim: chalk.dim,
-	BoldDim: chalk.dim.bold,
+const Clrs = {
+	dim: chalk.dim,
 
 	// Clrs
 	red: chalk.red,
@@ -11,10 +10,11 @@ export const Clrs = {
 	green: chalk.green,
 	yellow: chalk.yellow,
 
-	// Inverse
-	redInverse: chalk.bold.inverse.red,
-	blueInverse: chalk.bold.inverse.blue,
-	cyanInverse: chalk.bold.inverse.cyan,
-	greenInverse: chalk.bold.inverse.green,
-	yellowInverse: chalk.bold.inverse.yellow
-}
+	// Bgs
+	bgRed: chalk.inverse.red,
+	bgCyan: chalk.inverse.cyan,
+	bgGreen: chalk.inverse.green,
+	bgYellow: chalk.inverse.yellow
+};
+
+export default Clrs;

@@ -1,33 +1,36 @@
-import meow from 'meow'
-import { Clrs } from './Utils/Clrs'
+import * as meow from 'meow';
+import Clrs from './Utils/Clrs';
+
+// prettier-ignore
 const {
-	Dim,
+	dim,
 	gray,
 	cyan,
 	green,
 	yellow,
-	blueInverse,
-	greenInverse,
-	yellowInverse
-} = Clrs
+	bgCyan,
+	bgGreen,
+	bgYellow
+} = Clrs;
 
 const helpTxt = `
-    ${greenInverse(` USAGE `)}\n
-    ${gray('$')} ${green('hyper')} ${cyan('<commands>')} ${yellow('[options]')}
+${bgGreen(` USAGE `)}\n
+${gray('$')} ${green('hyper')} ${cyan('<commands>')} ${yellow('[options]')}
 
-    ${blueInverse(` COMMANDS `)}\n
-    ${cyan('help')}   ${Dim('Print help info')}
-    ${cyan('init')}   ${Dim('Initialize a new project')}
-    ${cyan('ls')}     ${Dim('List available templates')}
+${bgCyan(` COMMANDS `)}\n
+${cyan('help')}   ${dim('Print help info')}
+${cyan('init')}   ${dim('Initialize a new project')}
+${cyan('ls')}     ${dim('List available templates')}
 
-    ${yellowInverse(` OPTIONS `)}\n
-    ${yellow('-c, --clear')}     ${Dim('Clear terminal (default)')}
-    ${yellow('-v, --version')}   ${Dim('Print version')}
-    ${yellow('-y, --install')}   ${Dim('Install dependencies')}
-    ${yellow('-r, --rainbow')}   ${Dim('I wonder🏳️‍🌈')}
+${bgYellow(` OPTIONS `)}\n
+${yellow('-c, --clear')}     ${dim('Clear terminal')} ${gray('(default)')}
+${yellow('-v, --version')}   ${dim('Print Cli version')}
+${yellow('-y, --default')}   ${dim('Roll with default selection')}
+${yellow('-i, --install')}   ${dim('Install dependencies')}
+${yellow('-r, --rainbow')}   ${dim('I wonder🏳️‍🌈')}
+`;
 
-`
-export const Args = meow(helpTxt, {
+const Args = meow(helpTxt, {
 	flags: {
 		clear: {
 			type: 'boolean',
@@ -39,7 +42,13 @@ export const Args = meow(helpTxt, {
 			type: 'boolean',
 			default: false,
 			alias: 'v',
-			description: 'Print version'
+			description: 'Print Cli version'
+		},
+		default: {
+			type: 'boolean',
+			default: false,
+			alias: 'y',
+			description: 'Roll with default selection'
 		},
 		install: {
 			type: 'boolean',
@@ -57,4 +66,6 @@ export const Args = meow(helpTxt, {
 	inferType: true,
 	description: false,
 	hardRejection: false
-})
+});
+
+export default Args;

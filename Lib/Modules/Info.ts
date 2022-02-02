@@ -1,7 +1,6 @@
-import { Chalk } from 'chalk'
-import { Clear } from './Clear'
-import { Clrs } from '../Utils/Clrs'
-const { Dim, BoldDim, greenInverse } = Clrs
+import { optionsInterface } from '../Utils/Interfaces';
+import clearConsole from './Clear';
+import Clrs from '../Utils/Clrs';
 
 /**
  * 📟 Prints out an info header for Node.js CLIs
@@ -13,60 +12,41 @@ const { Dim, BoldDim, greenInverse } = Clrs
  * 	tagLine: 'by ✨@author✨',
  * 	description: 'A very useful description!',
  * 	version: '1.0',
- * 	bold: false,
  * 	clear: true,
  * })
  * ```
  */
 
-export function Info(uOptions: object): void {
-	interface optionsInterface {
-		title: string
-		tagLine: string
-		description: string
-		version: string
-		bold: boolean
-		clear: boolean
-	}
+function Info(uOptions: object): void {
+	const { dim, bgGreen } = Clrs;
 
 	const defaultOptions: optionsInterface = {
-		title: 'Heading',
-		tagLine: 'Tagline',
-		description: 'Description',
-		version: '',
-		bold: false,
+		title: 'Hallo',
+		tagLine: 'by @Shorky',
+		description: 'An awesome description!',
+		version: 'v3-Mil',
 		clear: true
-	}
+	};
 
-	const options = { ...defaultOptions, ...uOptions }
+	const options = { ...defaultOptions, ...uOptions };
 	// prettier-ignore
 	const {
 		title,
 		tagLine,
 		description,
 		version,
-		bold,
 		clear
 	} = options
 
-	let Dimmed: Chalk
-
-	switch (bold) {
-		case true:
-			Dimmed = BoldDim
-			break
-		case false:
-			Dimmed = Dim
-			break
-	}
-
 	/** @param {boolean} clear - Clear the terminal before printing */
-	clear && Clear()
+	clear && clearConsole();
 
 	/** @returns */
 	console.log(
-		`\n${greenInverse(` ${title} `)} v${version} ${Dimmed(
-			tagLine
-		)} \n${Dimmed(description)}\n`
-	)
+		`\n${bgGreen(` ${title} `)} v${version} ${dim(tagLine)} \n${dim(
+			description
+		)}\n`
+	);
 }
+
+export default Info;
