@@ -85,7 +85,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 			{
 				key: 'y',
 				name: 'Confirm selection',
-				value: 'confirm'
+				value: 'yes'
 			},
 			{
 				key: 'c',
