@@ -63,6 +63,7 @@ async function Init(options: Answers): Promise<void> {
 			process.exit(0);
 		default:
 			Print('Error', "Couldn't get user input");
+			await Tasks.run();
 	}
 }
 
