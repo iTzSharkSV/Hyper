@@ -3,6 +3,7 @@ import Args from '../Args';
 import initGit from './Git';
 import commitFiles from './Commit';
 import Print from '../Modules/Print';
+import createLicence from './License';
 import copyTemplateFiles from './Copy';
 import iDependencies from './InstallDep';
 import { Answers } from 'inquirer';
@@ -11,6 +12,7 @@ async function Init(options: Answers): Promise<void> {
 	const flags = Args.flags;
 	// prettier-ignore
 	const {
+		aName,
 		projTemplate,
 		gitInit,
 		fstCommit,
@@ -25,6 +27,10 @@ async function Init(options: Answers): Promise<void> {
 			{
 				title: 'Copy project files',
 				task: () => copyTemplateFiles(projTemplate, overWriteFiles)
+			},
+			{
+				title: 'Setting up License',
+				task: () => createLicence(aName)
 			},
 			{
 				title: 'Initialize git',

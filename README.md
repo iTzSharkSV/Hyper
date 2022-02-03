@@ -2,8 +2,6 @@
 
 A CLI to bootstrap new projects!
 
----
-
 Generate an Advanced Project Template in seconds.
 
 ## Prerequisites
@@ -61,11 +59,11 @@ $ hyper ls
 ---------------------------------------------------------
 LANGUAGE          Size(kb)    NAME
 ---------------------------------------------------------
-(-)               14.4        Jumpstart
-Typescript        15.0        Node-Proj
-Javascript        12.2        Static-Web
-Rust-Lang         11.2        Rust-Crate
-Java              -           Java-Proj (Coming soon)
+(-)               14.01        Jumpstart
+Typescript        14.62        Node-Proj
+Javascript        12.01        Static-Web
+Rust-Lang         10.97        Rust-Crate
+Java              -            Java-Proj (Coming soon)
 ---------------------------------------------------------
 ```
 

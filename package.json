@@ -1,5 +1,5 @@
 {
-	"name": "@test/hyper",
+	"name": "@sharksv/hyper",
 	"version": "2.3.0",
 	"description": "A CLI to bootstrap new projects!",
 	"keywords": [
@@ -15,7 +15,7 @@
 	"type": "commonjs",
 	"files": [
 		"Bin",
-		"Cli",
+		"Cli/**/*",
 		"Templates",
 		"LICENSE",
 		"README.md"

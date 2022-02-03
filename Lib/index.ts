@@ -36,8 +36,11 @@ import * as updateNotifier from 'update-notifier';
 		const defaultSelection = {
 			aName: 'Someone',
 			projTemplate: 'Node',
+			overWriteFiles: false,
 			gitInit: true,
-			pkgManager: 'npm'
+			fstCommit: true,
+			pkgManager: 'npm',
+			confirm: 'yes'
 		};
 
 		const userSelection =

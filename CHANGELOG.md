@@ -7,21 +7,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Berry]
 
--   Alot more changes are planned for the next release, but...
+### Headline
 
-### Added
-
--   A Changelog file :>
--   listTemplates function
--   More user prompt questions
--   "-y, --default" flag for default user selection
-
-### Changed
-
--   Folder structure
 -   Major tweaks to the codebase
 -   Moved from "ncp" to "fs-extra"
 -   Hopefully fixed some various bugs
+
+### Added
+
+-   A CHANGELOG file :>
+-   A couple new functions @(commitFiles(), listTemplates())
+-   reAdded the createLicense() function
+-   More user prompt questions
+-   Confirmational prompt (Abort, Overwrite, Change-Dir, Continue)
+-   "-y, --default" flag for default user selection
+
+### Changes
+
+-   Folder structure
+-   Target template location
 
 ## [v2.2.0]
 
@@ -29,7 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Auto-update checking module
 
-### Changed
+### Changes
 
 -   Tweaked the Rust template
 
@@ -37,9 +41,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
--   Added & tweaked new/existing templates
+-   Added/tweaked new & existing templates
 
-### Changed
+### Changes
 
 -   Small tweaks to the codebase
 -   Updated Docs to be more descriptive
@@ -47,11 +51,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [v2.0.0]
 
-### Changed
+### Headline
 
 -   Migrated to Typescript
 -   Major & Minor tweaks to the codebase
 -   Hopefully optimized startup performance
+
+### Changes
+
+-   Switched from 'Javascript' to 'Typescript'
 
 ### Removed
 
@@ -70,7 +78,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Multi-template support
 -   Automatic module publishing
 
-### Changed
+### Changes
 
 -   Minor tweaks to the codebase
 -   Some code refactoring
@@ -81,7 +89,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   New user-info prompt
 
-### Changed
+### Changes
 
 -   Folder structure
 -   Various small bug fixes
