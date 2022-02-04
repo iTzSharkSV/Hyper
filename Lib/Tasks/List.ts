@@ -6,6 +6,8 @@ const { dim, yellow } = Clrs;
 
 async function listTemplates(): Promise<void> {
 	try {
+		Print('Info', 'Available templates:');
+
 		for (let i = 0; i < Object.keys(pTemplate).length; i++) {
 			console.log(
 				`${dim(`${i}-`)} ${yellow(Object.values(pTemplate)[i])}`

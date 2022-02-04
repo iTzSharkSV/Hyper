@@ -80,7 +80,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 	const Confirm = {
 		type: 'expand',
 		name: 'confirm',
-		message: 'Confirm selection:',
+		message: 'Confirm selection: (generating proj in currentDir)',
 		choices: [
 			{
 				key: 'y',
@@ -94,7 +94,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 			},
 			{
 				key: 'a',
-				name: 'Overwrite conflicting files',
+				name: 'Overwrite conflicting files (if any)',
 				value: 'overwrite'
 			},
 			new Separator(),

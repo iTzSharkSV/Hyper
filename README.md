@@ -1,4 +1,4 @@
-# Hyper
+<img src="https://imgur.com/NjzU6uR.png" width="25px"> `yper`
 
 A CLI to bootstrap new projects!
 
@@ -57,7 +57,7 @@ OPTIONS:
 ```bash
 $ hyper ls
 ---------------------------------------------------------
-LANGUAGE          Size(kb)    NAME
+LANGUAGE          Size(kb)     NAME
 ---------------------------------------------------------
 (-)               14.01        Jumpstart
 Typescript        14.62        Node-Proj

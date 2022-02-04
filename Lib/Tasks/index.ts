@@ -46,9 +46,9 @@ async function Init(options: Answers): Promise<void> {
 				title: 'Install dependencies',
 				task: () => iDependencies(pkgManager),
 				skip: () =>
-					!flags.install
+					!flags.install && projTemplate == 'Node'
 						? 'Pass -i to automatically install dependencies'
-						: undefined
+						: 'Coming soon!'
 			}
 		],
 		{
@@ -64,12 +64,14 @@ async function Init(options: Answers): Promise<void> {
 			overWriteFiles = true;
 			await Tasks.run();
 			break;
+		case 'change':
+			Print('Warning', "Couldn't change project dir (Coming soon!)");
+			break;
 		case 'abort':
 			Print('Warning', 'Aborting project initialization...');
 			process.exit(0);
 		default:
 			Print('Error', "Couldn't get user input");
-			await Tasks.run();
 	}
 }
 
