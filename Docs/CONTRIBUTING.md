@@ -15,7 +15,7 @@ These guidelines will ensure the pull request process is easy and traceable for 
 ### Setting up your environment
 
 1.  Fork this repository.
-2.  Installing dependencies. Check [ReadMe](../README.md) for more info.
+2.  Setting up dev environment. Check [ReadMe](../README.md) for more info.
 
 ### Publishing your change
 

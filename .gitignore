@@ -17,7 +17,9 @@ Thumbs.db
 
 # Compiled Files and Build Dirs #
 ##########
+Cli
 Build
+Dist
 
 # VSCode related files #
 ##########

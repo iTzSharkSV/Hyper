@@ -1,35 +1,30 @@
-import { Chalk } from 'chalk'
-import { Clrs } from '../Utils/Clrs'
+import { Chalk } from 'chalk';
+import { symbolsInterface } from '../Utils/Interfaces';
+import Clrs from '../Utils/Clrs';
+
+// prettier-ignore
 const {
 	red,
 	cyan,
 	green,
 	yellow,
-	redInverse,
-	blueInverse,
-	greenInverse,
-	yellowInverse
-} = Clrs
+	bgRed,
+	bgCyan,
+	bgGreen,
+	bgYellow
+} = Clrs;
 
-interface SymbolsInterface {
-	Info: string
-	Pass: string
-	Error: string
-	Warning: string
-}
-
-export const Symbols: SymbolsInterface = {
+const Symbols: symbolsInterface = {
 	Info: cyan('ℹ'),
 	Pass: green('✔'),
 	Error: red('✖'),
 	Warning: yellow('⚠')
-}
+};
 
 /**
  * 📟 Prints out a prettified message to the console.
  * @param {string} type Print type (pass, error, warning, info)
- * @param {string} msg Message to print (optional)
- * @param {string} title Msg title (optional)
+ * @param {string} msg Message to print
  * @example
  * ```ts
  * import { Print } from '...'
@@ -37,37 +32,37 @@ export const Symbols: SymbolsInterface = {
  * ```
  */
 
-export function Print(type: string, msg?: string, title?: string): void {
-	const pType = type.toLowerCase()
-	const Title = title ? title : type.toUpperCase()
-	const Msg = msg ? msg : ''
+function Print(Type: string, Msg: string): void {
+	const pType = Type.toLowerCase();
 
-	let Sym: string
-	let Clr: Chalk
-	let Inverse: Chalk
+	let Sym: string;
+	let Clr: Chalk;
+	let Bg: Chalk;
 
 	switch (pType) {
 		case 'pass':
-			Inverse = greenInverse
-			Sym = Symbols.Pass
-			Clr = green
-			break
+			Bg = bgGreen;
+			Sym = Symbols.Pass;
+			Clr = green;
+			break;
 		case 'error':
-			Inverse = redInverse
-			Sym = Symbols.Error
-			Clr = red
-			break
+			Bg = bgRed;
+			Sym = Symbols.Error;
+			Clr = red;
+			break;
 		case 'warning':
-			Inverse = yellowInverse
-			Sym = Symbols.Warning
-			Clr = yellow
-			break
+			Bg = bgYellow;
+			Sym = Symbols.Warning;
+			Clr = yellow;
+			break;
 		default:
-			Inverse = blueInverse
-			Sym = Symbols.Info
-			Clr = cyan
-			break
+			Bg = bgCyan;
+			Sym = Symbols.Info;
+			Clr = cyan;
+			break;
 	}
 
-	console.log(`\n${Sym} ${Inverse(` ${Title} `)} ${Clr(Msg)}\n`)
+	console.log(`\n${Sym} ${Bg(` ${Type} `)} ${Clr(Msg)}\n`);
 }
+
+export default Print;

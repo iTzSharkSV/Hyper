@@ -1,14 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "es2021",
-		"outDir": "Build",
-		"rootDir": ".",
-		"module": "commonjs",
+		"target": "es6",
+		"outDir": "Cli",
+		"rootDir": "Lib",
+		"module": "CommonJS",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"esModuleInterop": true,
 		"declaration": false,
-		"allowSyntheticDefaultImports": true,
 		"strict": true,
 
 		// Checks

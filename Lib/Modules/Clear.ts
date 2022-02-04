@@ -7,16 +7,18 @@
  * ```
  */
 
-export function Clear(): void {
-	let arg: string
+function clearConsole(): void {
+	let arg: string;
 
 	switch (process.platform) {
 		case 'win32':
-			arg = '\x1B[2J\x1B[0f'
-			break
+			arg = '\x1B[2J\x1B[0f';
+			break;
 		default:
-			arg = '\x1B[2J\x1B[3J\x1B[H'
+			arg = '\x1B[2J\x1B[3J\x1B[H';
 	}
 
-	process.stdout.write(arg)
+	process.stdout.write(arg);
 }
+
+export default clearConsole;

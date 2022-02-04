@@ -1,8 +1,6 @@
-# Hyper
+<img src="https://imgur.com/NjzU6uR.png" width="25px"> `yper`
 
 A CLI to bootstrap new projects!
-
----
 
 Generate an Advanced Project Template in seconds.
 
@@ -35,7 +33,7 @@ $ npm i -g .     # to add it as a global variable
 ```bash
 $ hyper help
 
-Hyper v2.1 by Shorky
+Hyper v2.3 by Shorky
 A CLI to bootstrap new projects!
 
 USAGE:
@@ -49,6 +47,7 @@ COMMANDS:
 OPTIONS:
     -c, --clear          Clear Terminal (on by Default)
     -v, --version        Prints CLI version
+    -y, --default        Roll with default selection
     -y, --install        Install project dependencies
     -r, --rainbow        I wonder?!
 ```
@@ -58,13 +57,13 @@ OPTIONS:
 ```bash
 $ hyper ls
 ---------------------------------------------------------
-LANGUAGE          Size(kb)    NAME
+LANGUAGE          Size(kb)     NAME
 ---------------------------------------------------------
-(-)               14.4        Jumpstart
-Typescript        15.0        Node-Proj
-Javascript        12.2        Static-Web
-Rust-Lang         11.2        Rust-Crate
-Java              -           Java-Proj (Coming soon)
+(-)               14.01        Jumpstart
+Typescript        14.62        Node-Proj
+Javascript        12.01        Static-Web
+Rust-Lang         10.97        Rust-Crate
+Java              -            Java-Proj (Coming soon)
 ---------------------------------------------------------
 ```
 
