@@ -23,6 +23,6 @@
 		"listFiles": false,
 		"pretty": true
 	},
-	"include": ["Src/Ts"],
+	"include": ["Src"],
 	"exclude": ["node_modules"]
 }

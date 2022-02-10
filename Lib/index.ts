@@ -4,21 +4,20 @@ import Inquire from './Inquire';
 import Info from './Modules/Info';
 import Print from './Modules/Print';
 import listTemplates from './Tasks/List';
+import * as pkg from '../package.json';
 import * as updateNotifier from 'update-notifier';
 
 (async (): Promise<void> => {
+	const { version } = pkg;
+	const ver = version.substring(0, version.length - 2);
+
 	Info({
 		title: 'Hyper',
 		tagLine: 'by @Shorky',
 		description: 'A Cli to bootstrap new projects',
-		version: '2.3',
+		version: ver,
 		clear: true
 	});
-
-	const pkg = {
-		name: '@sharksv/hyper',
-		version: '2.3.0'
-	};
 
 	updateNotifier({
 		pkg,

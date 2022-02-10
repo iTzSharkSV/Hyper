@@ -5,8 +5,8 @@
 ```diff
 - Bug fix
 - New feature
-- Breaking change (fix or feature that would cause existing functionality to change)
 - Updated docs
+- Breaking change (fix or feature that would cause existing functionality to change)
 ```
 
 ## Qualification checks
