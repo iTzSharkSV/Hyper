@@ -1,6 +1,6 @@
 {
 	"name": "@sharksv/hyper",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "A CLI to bootstrap new projects!",
 	"keywords": [
 		"Cli",
@@ -39,7 +39,8 @@
 		"build:dev": "tsc --watch",
 		"lint": "eslint --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-		"prepublish": "yarn lint && yarn format"
+		"precommit": "npm run lint && npm run format",
+		"test": "npm run build && node Tests/Init.Test.js"
 	},
 	"prettier": {
 		"trailingComma": "none",

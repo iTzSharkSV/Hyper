@@ -26,7 +26,22 @@ async function Init(options: Answers): Promise<void> {
 		[
 			{
 				title: 'Copy project files',
-				task: () => copyTemplateFiles(projTemplate, overWriteFiles)
+				task: () => {
+					const Jumpstart = () => {
+						copyTemplateFiles('Jumpstart', overWriteFiles);
+					};
+
+					switch (projTemplate) {
+						case 'Node':
+						case 'Rust':
+						case 'Static':
+							Jumpstart();
+							copyTemplateFiles(projTemplate, overWriteFiles);
+							break;
+						default:
+							Jumpstart();
+					}
+				}
 			},
 			{
 				title: 'Setting up License',
@@ -44,7 +59,11 @@ async function Init(options: Answers): Promise<void> {
 			},
 			{
 				title: 'Install dependencies',
-				task: () => iDependencies(pkgManager),
+				task: () => {
+					projTemplate == 'Node'
+						? iDependencies(pkgManager)
+						: 'Installing dependencies only available for $Node projects';
+				},
 				skip: () =>
 					!flags.install && projTemplate == 'Node'
 						? 'Pass -i to automatically install dependencies'
@@ -56,13 +75,17 @@ async function Init(options: Answers): Promise<void> {
 		}
 	);
 
+	const Run = async () => {
+		await Tasks.run();
+	};
+
 	switch (confirm) {
 		case 'yes':
-			await Tasks.run();
+			Run();
 			break;
 		case 'overwrite':
 			overWriteFiles = true;
-			await Tasks.run();
+			Run();
 			break;
 		case 'change':
 			Print('Warning', "Couldn't change project dir (Coming soon!)");

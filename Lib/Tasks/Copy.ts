@@ -9,7 +9,7 @@ async function copyTemplateFiles(
 	// prettier-ignore
 	const templateDir: string = join(
 		__dirname,
-		'../../Templates',
+		'../../../Templates',
 		Template
 	);
 

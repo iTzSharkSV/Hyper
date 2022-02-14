@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "es6",
 		"outDir": "Cli",
-		"rootDir": "Lib",
+		"rootDir": ".",
 		"module": "CommonJS",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,

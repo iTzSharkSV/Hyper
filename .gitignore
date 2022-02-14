@@ -24,3 +24,7 @@ Dist
 # VSCode related files #
 ##########
 .vscode
+
+# Tests Target Files #
+##########
+Tests/Target
