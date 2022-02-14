@@ -7,4 +7,4 @@
  * @author SharkSV <https://github.com/iTzSharkSV>
  */
 
-require('../Cli/Lib');
+require('../Cli');
