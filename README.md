@@ -4,57 +4,9 @@ A CLI to bootstrap new projects!
 
 Generate an Advanced Project Template in seconds.
 
-## Prerequisites
-
-[Node.js](https://nodejs.org/en/) and npm are required as a peer dependency.
-
-## Installing
-
-### From [`npmjs.com`](https://npmjs.com/package/@sharksv/hyper)
-
-```bash
-npm install -g @sharksv/hyper
-# or
-yarn global add @sharksv/hyper
-```
-
-### Compile from source
-
-```bash
-$ git clone https://github.com/iTzSharkSV/Hyper.git
-$ cd Hyper
-$ npm install    # to install project dependencies
-$ npm run build  # to compile the project
-$ npm i -g .     # to add it as a global variable
-```
-
-## Usage/Examples
-
-```bash
-$ hyper help
-
-Hyper v2.3 by Shorky
-A CLI to bootstrap new projects!
-
-USAGE:
-    $ hyper <commands> [options]
-
-COMMANDS:
-    help          Prints usage-help info
-    init          Initialize a new project
-    ls            List available templates
-
-OPTIONS:
-    -c, --clear          Clear Terminal (on by Default)
-    -v, --version        Prints CLI version
-    -y, --default        Roll with default selection
-    -y, --install        Install project dependencies
-    -r, --rainbow        I wonder?!
-```
-
 ## Available Templates
 
-```bash
+```Txt
 $ hyper ls
 ---------------------------------------------------------
 LANGUAGE          Size(kb)     NAME
@@ -99,9 +51,57 @@ Java              -            Java-Proj (Coming soon)
 └─ LICENSE
 ```
 
+## Prerequisites
+
+[Node.js](https://nodejs.org/en/) and npm are required as a peer dependency.
+
+## Installing
+
+### From [`npmjs.com`](https://npmjs.com/package/@sharksv/hyper)
+
+```bash
+npm install -g @sharksv/hyper
+# or
+yarn global add @sharksv/hyper
+```
+
+### Compile from source
+
+```Txt
+$ git clone https://github.com/iTzSharkSV/Hyper.git
+$ cd Hyper
+$ npm install    # to install project dependencies
+$ npm run build  # to compile the project
+$ npm i -g .     # to add it as a global variable
+```
+
+## Usage/Examples
+
+```Txt
+$ hyper help
+
+Hyper v2.3 by Shorky
+A CLI to bootstrap new projects!
+
+USAGE:
+    $ hyper <commands> [options]
+
+COMMANDS:
+    help          Prints usage-help info
+    init          Initialize a new project
+    ls            List available templates
+
+OPTIONS:
+    -c, --clear          Clear Terminal (on by Default)
+    -v, --version        Prints CLI version
+    -y, --default        Roll with default selection
+    -y, --install        Install project dependencies
+    -r, --rainbow        I wonder?!
+```
+
 ## License
 
-```text
+```Txt
 #
 # Copyright 2021 - SharkSV
 # License Identifier: MIT

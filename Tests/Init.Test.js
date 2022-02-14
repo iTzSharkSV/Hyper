@@ -22,7 +22,7 @@ const fs = require('fs');
 
 	fs.existsSync(targetPath) ? rmAnCr() : createDir();
 
-	const Init = execa('hyper', ['init', '-y'], {
+	const Init = execa('node', ['../../Bin/Hyper', 'init', '-y'], {
 		cwd: path.join(__dirname, './Target')
 	});
 
