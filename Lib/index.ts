@@ -30,7 +30,7 @@ import * as updateNotifier from 'update-notifier';
 
 	// Cmds
 	input.includes('help') && Args.showHelp(0);
-	input.includes('ls') && listTemplates();
+	input.includes('list') && listTemplates();
 
 	if (input.includes('init')) {
 		const defaultSelection = {

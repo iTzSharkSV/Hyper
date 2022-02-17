@@ -8,6 +8,11 @@ export enum pTemplate {
 	Node = 'Node'
 }
 
+enum pType {
+	Library = 'Lib',
+	Binary = 'Bin'
+}
+
 enum pManager {
 	Npm = 'Npm',
 	Yarn = 'Yarn'
@@ -30,14 +35,22 @@ async function Inquire(): Promise<DistinctQuestion> {
 		message: 'Project Template?',
 		default: pTemplate.Node,
 		choices: [
-			{
-				name: 'Jumpstart',
-				value: pTemplate.Jumpstart
-			},
+			{ name: 'Jumpstart', value: pTemplate.Jumpstart },
 			new Separator(),
 			{ name: 'A Node.js project', value: pTemplate.Node },
 			{ name: 'Static site biolerplate', value: pTemplate.Static },
 			{ name: 'Oxidized-C project (Rust)', value: pTemplate.Rust }
+		]
+	};
+
+	const rsProjType: DistinctQuestion = {
+		type: 'list',
+		name: 'rsProjType',
+		message: 'Rust Project Type?',
+		default: '',
+		choices: [
+			{ name: 'Library', value: pType.Library },
+			{ name: 'Binary', value: pType.Binary }
 		]
 	};
 
@@ -109,6 +122,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 	return prompt([
 		authorName,
 		projectTemplate,
+		rsProjType,
 		packageManager,
 		initilizeGit,
 		firstCommit,

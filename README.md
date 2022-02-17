@@ -54,8 +54,8 @@ COMMANDS:
 OPTIONS:
     -k, --keep           Keep terminal output (off by Default)
     -y, --skip           Generate without prompt
-    -v, --version        Prints CLI version (following semver)
     -i, --install        Install project dependencies
+    -v, --version        Prints CLI version (following semver)
 ```
 
 ```Txt
