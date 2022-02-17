@@ -1,15 +1,23 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const execa = require('execa');
-const path = require('path');
-const fs = require('fs');
+import execa from 'execa';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+// prettier-ignore
+import { 
+	rmSync, 
+	mkdirSync, 
+	existsSync 
+} from 'fs';
 
 (async () => {
-	const currentDir = process.cwd();
-	const targetPath = path.join(currentDir, 'Tests', 'Target');
+	const __filename = fileURLToPath(import.meta.url);
+	const __dirname = dirname(__filename);
 
-	const createDir = async () => fs.mkdirSync(targetPath);
+	const currentDir = process.cwd();
+	const targetPath = join(currentDir, 'Tests', 'Target');
+
+	const createDir = async () => mkdirSync(targetPath);
 	const removeDir = async () => {
-		fs.rmSync(targetPath, {
+		rmSync(targetPath, {
 			recursive: true,
 			force: true
 		});
@@ -20,10 +28,10 @@ const fs = require('fs');
 		createDir();
 	};
 
-	fs.existsSync(targetPath) ? rmAnCr() : createDir();
+	existsSync(targetPath) ? rmAnCr() : createDir();
 
 	const Init = execa('node', ['../../Bin/Hyper', 'init', '-y'], {
-		cwd: path.join(__dirname, './Target')
+		cwd: join(__dirname, './Target')
 	});
 
 	Init.stdout.on('data', (data) => {

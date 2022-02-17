@@ -40,7 +40,7 @@
 		"lint": "eslint --ext .js,.ts .",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
 		"precommit": "npm run lint && npm run format",
-		"test": "npm run build && node Tests/Init.Test.js"
+		"test": "npm run build && node Tests/Init.Test.mjs"
 	},
 	"prettier": {
 		"trailingComma": "none",
