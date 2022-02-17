@@ -1,17 +1,17 @@
 [package]
-name = "Some-Name"
+name = "sum-name"
 version = "0.1.0"
-edition = "2018"
+edition = "2021"
 authors = ["Someone"]
 description = "A brief description of the package"
 keywords = [
     "Bootstraped",
-    "Created by Hyper",
+    "Created by @sharksv/hyper",
 ]
 license = "MIT"
 
 [[bin]]
-name = "Project-Name"
+name = "project-name"
 path = "Lib/Main.rs"
 
 [dependencies]

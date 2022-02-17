@@ -2,16 +2,6 @@
 
 A template for new ambitious projects!
 
-## Project Table
-
-This repository contains some example best practices for open source repositories:
-
--   [LICENSE](LICENSE)
--   [README.md](README.md)
--   [CONTRIBUTING.md](./Docs/CONTRIBUTING.md)
--   [CHANGELOG.md](CHANGELOG.md)
--   [Travis.yml](.travis.yml) - This is a example `.travis.yml`, please take a look https://docs.travis-ci.com/user/tutorial/ for more details.
-
 ## Run Locally
 
 `Clone the project`
@@ -28,41 +18,31 @@ gh repo clone <Org>/<Repo>
 cd <Project>
 ```
 
+`Some additional steps...`
+
 ## Usage/Examples
 
-`Basic commands`
-
-```js
-class Example extends Something {
-	constructor() {
-		super({
-			name: 'example',
-			description: 'Example command'
-		});
-	}
-
-	async exec(interaction) {
-		return interaction.reply({
-			ephemeral: true,
-			content: 'Hallo!'
-		});
-	}
-}
-
-module.exports = Example;
+```Txt
+$ sum-thing init --idk
 ```
 
 ## Project Tree
 
 ```Txt
 📦 <Project>
+├─ .github
+│  ├─ ISSUE_TEMPLATE
+│  │  ├─ BUG_REPORT.md
+│  │  └─ FEATURE_REQUEST.md
+│  ├─ workflows
+│  │   └─ CodeQL.yml
+│  ├─ Funding.yml
+│  └─ PULL_REQUEST_TEMPLATE.md
 ├─ Docs
 │  ├─ CODE_OF_CONDUCT.md
 │  ├─ CONTRIBUTING.md
 │  └─ SECURITY.md
 ├─ .gitignore
-├─ .prettierrc
-├─ .travis.yml
 ├─ CHANGELOG.md
 ├─ README.md
 └─ LICENSE
@@ -70,9 +50,9 @@ module.exports = Example;
 
 ## License
 
-```text
+```Txt
 #
-# Copyright <year> - <author> All rights reserved
+# Copyright <year> - <author>
 # License Identifier: MIT
 #
 ```

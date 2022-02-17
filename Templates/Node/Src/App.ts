@@ -1,1 +1,3 @@
-console.log('Heyo!');
+import { greet } from './Modules/Greet';
+
+greet(5);
