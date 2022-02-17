@@ -44,7 +44,7 @@ import * as updateNotifier from 'update-notifier';
 		};
 
 		const userSelection =
-			flags.default === true
+			flags.skip === true
 				? defaultSelection
 				: {
 						...(await (async () => {

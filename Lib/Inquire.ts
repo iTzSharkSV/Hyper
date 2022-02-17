@@ -51,7 +51,8 @@ async function Inquire(): Promise<DistinctQuestion> {
 		choices: [
 			{ name: 'Library', value: pType.Library },
 			{ name: 'Binary', value: pType.Binary }
-		]
+		],
+		when: (answers: Answers) => answers.projTemplate === pTemplate.Rust
 	};
 
 	const initilizeGit = {
