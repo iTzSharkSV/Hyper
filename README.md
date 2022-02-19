@@ -38,7 +38,7 @@ $ npm i -g .     # add it as a global variable
 
 ```Txt
 $ hyper help
--------------
+---------------------------------------------------------
 
 Hyper v3.0 by Shorky
 A CLI to bootstrap new projects!
@@ -65,14 +65,14 @@ $ hyper init node -y
 ## Available Templates
 
 ```Txt
-$ hyper ls
+$ hyper list
 ---------------------------------------------------------
 LANGUAGE          Size(kb)     NAME
 ---------------------------------------------------------
-(-)               -            Jumpstart
-Typescript        -            Node.js Project
-Ts/Sass           -            Static-Web
-Rust-Lang         -            Rust Project (Bin, Lib)
+(-)               37.5	       Jumpstart
+Typescript        40.1         Node.js Project
+Ts/Sass           41.0         Static-Web
+Rust-Lang         38.1         Rust Project (Bin, Lib)
 Java              -            Java Project (Coming soon)
 ---------------------------------------------------------
 ```
