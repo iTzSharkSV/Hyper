@@ -1,22 +1,5 @@
-import { DistinctQuestion, Separator, prompt, Answers } from 'inquirer';
 import Args from './Args';
-
-export enum pTemplate {
-	Jumpstart = 'Jumpstart',
-	Static = 'Static',
-	Rust = 'Rust',
-	Node = 'Node'
-}
-
-enum pType {
-	Library = 'Lib',
-	Binary = 'Bin'
-}
-
-enum pManager {
-	Npm = 'Npm',
-	Yarn = 'Yarn'
-}
+import { DistinctQuestion, Separator, Answers, prompt } from 'inquirer';
 
 async function Inquire(): Promise<DistinctQuestion> {
 	const { install, rainbow } = Args.flags;
@@ -28,6 +11,13 @@ async function Inquire(): Promise<DistinctQuestion> {
 		default: 'Someone',
 		filter: (answer: string) => answer.trim()
 	};
+
+	enum pTemplate {
+		Jumpstart = 'Jumpstart',
+		Static = 'Static',
+		Rust = 'Rust',
+		Node = 'Node'
+	}
 
 	const projectTemplate: DistinctQuestion = {
 		type: 'list',
@@ -43,14 +33,19 @@ async function Inquire(): Promise<DistinctQuestion> {
 		]
 	};
 
+	enum pType {
+		Library = 'Lib',
+		Binary = 'Bin'
+	}
+
 	const rsProjType: DistinctQuestion = {
 		type: 'list',
 		name: 'rsProjType',
 		message: 'Rust Project Type?',
-		default: '',
+		default: pType.Binary,
 		choices: [
-			{ name: 'Library', value: pType.Library },
-			{ name: 'Binary', value: pType.Binary }
+			{ name: 'Binary', value: pType.Binary },
+			{ name: 'Library', value: pType.Library }
 		],
 		when: (answers: Answers) => answers.projTemplate === pTemplate.Rust
 	};
@@ -69,6 +64,11 @@ async function Inquire(): Promise<DistinctQuestion> {
 		default: true,
 		when: (answers: Answers) => answers.gitInit === true
 	};
+
+	enum pManager {
+		Npm = 'Npm',
+		Yarn = 'Yarn'
+	}
 
 	const packageManager: DistinctQuestion = {
 		type: 'list',
@@ -94,7 +94,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 	const Confirm = {
 		type: 'expand',
 		name: 'confirm',
-		message: 'Confirm selection: (generating proj in currentDir)',
+		message: 'Generating proj in currentDir...',
 		choices: [
 			{
 				key: 'y',
