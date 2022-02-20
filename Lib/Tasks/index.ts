@@ -1,15 +1,16 @@
 import * as Listr from 'listr';
+import * as execa from 'execa';
 import Args from '../Args';
-import initGit from './Git';
-import commitFiles from './Commit';
 import Print from '../Modules/Print';
-import createLicence from './License';
-import copyTemplateFiles from './Copy';
-import iDependencies from './InstallDep';
 import { Answers } from 'inquirer';
+import { join } from 'path';
+import { writeFile } from 'fs';
+import { copy } from 'fs-extra';
+import { MIT } from './Json/LicenseList.json';
 
 async function Init(options: Answers): Promise<void> {
 	const flags = Args.flags;
+	const currentDir = process.cwd();
 	// prettier-ignore
 	const {
 		aName,
@@ -19,7 +20,6 @@ async function Init(options: Answers): Promise<void> {
 		pkgManager,
 		confirm
 	} = options;
-
 	let overWriteFiles = false;
 
 	const Tasks = new Listr(
@@ -27,47 +27,92 @@ async function Init(options: Answers): Promise<void> {
 			{
 				title: 'Copy project files',
 				task: () => {
-					const Jumpstart = () => {
-						copyTemplateFiles('Jumpstart', overWriteFiles);
+					const copyFiles = (
+						template: string,
+						overWrite: boolean
+					) => {
+						const templateDir: string = join(
+							__dirname,
+							'../../Templates',
+							template
+						);
+
+						copy(templateDir, currentDir, {
+							overwrite: overWrite || false,
+							preserveTimestamps: false
+						}).catch(() => {
+							throw new Error('Could not copy template files');
+						});
 					};
 
 					switch (projTemplate) {
 						case 'Node':
 						case 'Rust':
 						case 'Static':
-							Jumpstart();
-							copyTemplateFiles(projTemplate, overWriteFiles);
+							copyFiles('Jumpstart', overWriteFiles);
+							copyFiles(projTemplate, overWriteFiles);
 							break;
 						default:
-							Jumpstart();
+							copyFiles('Jumpstart', overWriteFiles);
 					}
 				}
 			},
 			{
 				title: 'Setting up License',
-				task: () => createLicence(aName)
+				task: () => {
+					const targetPath = join(currentDir, 'LICENSE');
+					const licenseContent = MIT.licenseTxt
+						.replace('<year>', `${new Date().getFullYear()}`)
+						.replace('<copyright holders>', `${aName}`);
+
+					writeFile(targetPath, licenseContent, 'utf8', (err) => {
+						if (err) {
+							throw new Error('Could not write license file');
+						}
+					});
+				}
 			},
 			{
 				title: 'Initialize git',
-				task: () => initGit(),
+				task: () =>
+					execa.command('git init').catch(() => {
+						throw new Error('Could not initialize git');
+					}),
 				skip: () => !gitInit
 			},
 			{
 				title: 'Commit files',
-				task: () => commitFiles(),
+				task: () => {
+					execa.command('git add .');
+					execa
+						.command(`git commit -m "Initial commit"`)
+						.catch(() => {
+							throw new Error('Could not commit files');
+						});
+				},
 				skip: () => !fstCommit
 			},
 			{
 				title: 'Install dependencies',
 				task: () => {
-					projTemplate == 'Node'
-						? iDependencies(pkgManager)
+					projTemplate == 'Node' || 'Static'
+						? () => {
+								switch (pkgManager) {
+									case 'Npm':
+										execa.command('npm install');
+										break;
+									case 'Yarn':
+										execa.command('yarn install');
+										break;
+								}
+						  }
 						: 'Installing dependencies only available for $Node projects';
 				},
-				skip: () =>
-					!flags.install && projTemplate == 'Node'
-						? 'Pass -i to automatically install dependencies'
-						: 'Coming soon!'
+				skip: () => {
+					if (!flags.install) {
+						('Pass -i to automatically install dependencies');
+					}
+				}
 			}
 		],
 		{
@@ -75,26 +120,20 @@ async function Init(options: Answers): Promise<void> {
 		}
 	);
 
-	const Run = async () => {
-		await Tasks.run();
-	};
-
 	switch (confirm) {
 		case 'yes':
-			Run();
+			Tasks.run();
 			break;
 		case 'overwrite':
 			overWriteFiles = true;
-			Run();
+			Tasks.run();
 			break;
 		case 'change':
-			Print('Warning', "Couldn't change project dir (Coming soon!)");
+			Print('Error', "Couldn't change project dir (Coming soon!)");
 			break;
 		case 'abort':
 			Print('Warning', 'Aborting project initialization...');
 			process.exit(0);
-		default:
-			Print('Error', "Couldn't get user input");
 	}
 }
 
