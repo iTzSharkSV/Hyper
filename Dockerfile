@@ -5,4 +5,4 @@ COPY . .
 RUN npm install
 RUN npm run build
 
-CMD node ./Bin/Hyper
+CMD npm test

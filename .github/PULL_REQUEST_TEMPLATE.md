@@ -6,7 +6,7 @@
 - Bug fix
 - New feature
 - Updated docs
-- Breaking change (fix or feature that would cause existing functionality to change)
+- Is a breaking change
 ```
 
 ## Qualification checks
