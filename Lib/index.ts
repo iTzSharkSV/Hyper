@@ -11,13 +11,13 @@ import * as updateNotifier from 'update-notifier';
 		title: 'Hyper',
 		tagLine: 'by @Shorky',
 		description: 'A Cli to bootstrap new projects',
-		version: 2.4,
+		version: '3.0',
 		clear: true
 	});
 
 	const pkg = {
 		name: '@sharksv/hyper',
-		version: '2.4.1'
+		version: '3.0.0'
 	};
 
 	updateNotifier({
@@ -38,7 +38,7 @@ import * as updateNotifier from 'update-notifier';
 			projTemplate: 'Node',
 			overWriteFiles: false,
 			gitInit: true,
-			fstCommit: true,
+			fstCommit: false,
 			pkgManager: 'npm',
 			confirm: 'yes'
 		};
