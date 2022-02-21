@@ -33,23 +33,6 @@ async function Inquire(): Promise<DistinctQuestion> {
 		]
 	};
 
-	enum pType {
-		Library = 'Lib',
-		Binary = 'Bin'
-	}
-
-	const rsProjType: DistinctQuestion = {
-		type: 'list',
-		name: 'rsProjType',
-		message: 'Rust Project Type?',
-		default: pType.Binary,
-		choices: [
-			{ name: 'Binary', value: pType.Binary },
-			{ name: 'Library', value: pType.Library }
-		],
-		when: (answers: Answers) => answers.projTemplate === pTemplate.Rust
-	};
-
 	const initilizeGit = {
 		type: 'confirm',
 		name: 'gitInit',
@@ -107,7 +90,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 				value: 'change'
 			},
 			{
-				key: 'a',
+				key: 'o',
 				name: 'Overwrite conflicting files (if any)',
 				value: 'overwrite'
 			},
@@ -123,7 +106,6 @@ async function Inquire(): Promise<DistinctQuestion> {
 	return prompt([
 		authorName,
 		projectTemplate,
-		rsProjType,
 		packageManager,
 		initilizeGit,
 		firstCommit,

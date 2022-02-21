@@ -59,7 +59,7 @@ OPTIONS:
 ```
 
 ```Txt
-$ hyper init node -y
+$ hyper init -y
 ```
 
 ## Available Templates

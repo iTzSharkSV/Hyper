@@ -45,15 +45,18 @@ async function Init(options: Answers): Promise<void> {
 						});
 					};
 
+					const Jumpstart = () =>
+						copyFiles('Jumpstart', overWriteFiles);
+
 					switch (projTemplate) {
 						case 'Node':
 						case 'Rust':
 						case 'Static':
-							copyFiles('Jumpstart', overWriteFiles);
+							Jumpstart();
 							copyFiles(projTemplate, overWriteFiles);
 							break;
 						default:
-							copyFiles('Jumpstart', overWriteFiles);
+							Jumpstart();
 					}
 				}
 			},

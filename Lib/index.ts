@@ -1,6 +1,6 @@
 import Args from './Args';
-import Init from './Tasks';
 import Inquire from './Inquire';
+import Init from './Tasks/Init';
 import Info from './Modules/Info';
 import Print from './Modules/Print';
 import listTemplates from './Tasks/List';
