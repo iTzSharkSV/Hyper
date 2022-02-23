@@ -1,12 +1,7 @@
 import execa from 'execa';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-// prettier-ignore
-import { 
-	rmSync, 
-	mkdirSync, 
-	existsSync 
-} from 'fs';
+import { rmSync, mkdirSync, existsSync } from 'fs';
 
 (async () => {
 	const __filename = fileURLToPath(import.meta.url);
@@ -43,12 +38,7 @@ import {
 	});
 
 	Init.on('close', (code) => {
-		const logTxt = `
-		LOG:
-			Process exited with code ${code}
-			Removing $target dir
-		`;
-		console.log(logTxt);
+		console.log(`LOG: Process exited with code ${code}`);
 		removeDir();
 	});
 })();

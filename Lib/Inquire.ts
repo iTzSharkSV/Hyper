@@ -50,7 +50,8 @@ async function Inquire(): Promise<DistinctQuestion> {
 
 	enum pManager {
 		Npm = 'Npm',
-		Yarn = 'Yarn'
+		Yarn = 'Yarn',
+		Cargo = 'Cargo'
 	}
 
 	const packageManager: DistinctQuestion = {
@@ -60,10 +61,10 @@ async function Inquire(): Promise<DistinctQuestion> {
 		default: pManager.Npm,
 		choices: [
 			{ name: 'Npm', value: pManager.Npm },
-			{ name: 'Yarn', value: pManager.Yarn }
+			{ name: 'Yarn', value: pManager.Yarn },
+			{ name: 'Cargo', value: pManager.Cargo }
 		],
-		when: (answers: Answers) =>
-			install && answers.projTemplate === pTemplate.Node
+		when: () => install
 	};
 
 	const areYou = {

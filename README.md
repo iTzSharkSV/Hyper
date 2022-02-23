@@ -40,7 +40,7 @@ $ npm i -g .     # add it as a global variable
 $ hyper help
 ---------------------------------------------------------
 
-Hyper v3.0 by Shorky
+Hyper v3.0 by @Shorky
 A CLI to bootstrap new projects!
 
 USAGE:
@@ -88,7 +88,7 @@ Java              -            Java Project (Coming soon)
 │  │  ├─ BUG_REPORT.md
 │  │  └─ FEATURE_REQUEST.md
 │  ├─ workflows
-│  │  └─ codeQL.yml
+│  │  └─ CodeQL.yml
 │  └─ PULL_REQUEST_TEMPLATE.md
 ├─ .husky
 │  └─ pre-commit

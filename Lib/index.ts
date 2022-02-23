@@ -4,23 +4,23 @@ import Init from './Tasks/Init';
 import Info from './Modules/Info';
 import Print from './Modules/Print';
 import listTemplates from './Tasks/List';
-import * as updateNotifier from 'update-notifier';
+import { UpdateNotifier } from 'update-notifier';
 
 (async (): Promise<void> => {
 	Info({
 		title: 'Hyper',
 		tagLine: 'by @Shorky',
 		description: 'A Cli to bootstrap new projects',
-		version: '3.0',
+		version: '3.0-Beta',
 		clear: true
 	});
 
 	const pkg = {
 		name: '@sharksv/hyper',
-		version: '3.0.0'
+		version: '3.0.0-beta.1'
 	};
 
-	updateNotifier({
+	new UpdateNotifier({
 		pkg,
 		updateCheckInterval: 0
 	}).notify({ isGlobal: true });
@@ -34,13 +34,12 @@ import * as updateNotifier from 'update-notifier';
 
 	if (input.includes('init')) {
 		const defaultSelection = {
+			confirm: 'yes',
 			aName: 'Someone',
 			projTemplate: 'Node',
-			overWriteFiles: false,
+			pkgManager: 'Npm',
 			gitInit: true,
-			fstCommit: false,
-			pkgManager: 'npm',
-			confirm: 'yes'
+			fstCommit: true
 		};
 
 		const userSelection =

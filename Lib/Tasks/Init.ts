@@ -9,7 +9,7 @@ import { copy } from 'fs-extra';
 import { MIT } from './Json/LicenseList.json';
 
 async function Init(options: Answers): Promise<void> {
-	const flags = Args.flags;
+	const { install } = Args.flags;
 	const currentDir = process.cwd();
 	// prettier-ignore
 	const {
@@ -40,8 +40,6 @@ async function Init(options: Answers): Promise<void> {
 						copy(templateDir, currentDir, {
 							overwrite: overWrite || false,
 							preserveTimestamps: false
-						}).catch(() => {
-							throw new Error('Could not copy template files');
 						});
 					};
 
@@ -70,52 +68,44 @@ async function Init(options: Answers): Promise<void> {
 
 					writeFile(targetPath, licenseContent, 'utf8', (err) => {
 						if (err) {
-							throw new Error('Could not write license file');
+							Promise.reject(
+								new Error('Could not write a license file')
+							);
 						}
 					});
 				}
 			},
 			{
 				title: 'Initialize git',
-				task: () =>
-					execa.command('git init').catch(() => {
-						throw new Error('Could not initialize git');
-					}),
+				task: () => execa.command('git init'),
 				skip: () => !gitInit
 			},
 			{
 				title: 'Commit files',
 				task: () => {
 					execa.command('git add .');
-					execa
-						.command(`git commit -m "Initial commit"`)
-						.catch(() => {
-							throw new Error('Could not commit files');
-						});
+					execa.command('git commit -m "Initial-commit"');
 				},
 				skip: () => !fstCommit
 			},
 			{
 				title: 'Install dependencies',
 				task: () => {
-					projTemplate == 'Node' || 'Static'
-						? () => {
-								switch (pkgManager) {
-									case 'Npm':
-										execa.command('npm install');
-										break;
-									case 'Yarn':
-										execa.command('yarn install');
-										break;
-								}
-						  }
-						: 'Installing dependencies only available for $Node projects';
-				},
-				skip: () => {
-					if (!flags.install) {
-						('Pass -i to automatically install dependencies');
+					switch (pkgManager) {
+						case 'Npm':
+							execa.command('npm install');
+							break;
+						case 'Yarn':
+							execa.command('yarn install');
+							break;
+						case 'Cargo':
+							execa.command('cargo build');
+							break;
+						default:
+							Promise.reject();
 					}
-				}
+				},
+				skip: () => !install
 			}
 		],
 		{
