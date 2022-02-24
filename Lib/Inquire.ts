@@ -1,17 +1,5 @@
-import { DistinctQuestion, Separator, prompt, Answers } from 'inquirer';
 import Args from './Args';
-
-export enum pTemplate {
-	Jumpstart = 'Jumpstart',
-	Static = 'Static',
-	Rust = 'Rust',
-	Node = 'Node'
-}
-
-enum pManager {
-	Npm = 'Npm',
-	Yarn = 'Yarn'
-}
+import { DistinctQuestion, Separator, Answers, prompt } from 'inquirer';
 
 async function Inquire(): Promise<DistinctQuestion> {
 	const { install, rainbow } = Args.flags;
@@ -24,16 +12,20 @@ async function Inquire(): Promise<DistinctQuestion> {
 		filter: (answer: string) => answer.trim()
 	};
 
+	enum pTemplate {
+		Jumpstart = 'Jumpstart',
+		Static = 'Static',
+		Rust = 'Rust',
+		Node = 'Node'
+	}
+
 	const projectTemplate: DistinctQuestion = {
 		type: 'list',
 		name: 'projTemplate',
 		message: 'Project Template?',
 		default: pTemplate.Node,
 		choices: [
-			{
-				name: 'Jumpstart',
-				value: pTemplate.Jumpstart
-			},
+			{ name: 'Jumpstart', value: pTemplate.Jumpstart },
 			new Separator(),
 			{ name: 'A Node.js project', value: pTemplate.Node },
 			{ name: 'Static site biolerplate', value: pTemplate.Static },
@@ -56,6 +48,12 @@ async function Inquire(): Promise<DistinctQuestion> {
 		when: (answers: Answers) => answers.gitInit === true
 	};
 
+	enum pManager {
+		Npm = 'Npm',
+		Yarn = 'Yarn',
+		Cargo = 'Cargo'
+	}
+
 	const packageManager: DistinctQuestion = {
 		type: 'list',
 		name: 'pkgManager',
@@ -63,10 +61,10 @@ async function Inquire(): Promise<DistinctQuestion> {
 		default: pManager.Npm,
 		choices: [
 			{ name: 'Npm', value: pManager.Npm },
-			{ name: 'Yarn', value: pManager.Yarn }
+			{ name: 'Yarn', value: pManager.Yarn },
+			{ name: 'Cargo', value: pManager.Cargo }
 		],
-		when: (answers: Answers) =>
-			install && answers.projTemplate === pTemplate.Node
+		when: () => install
 	};
 
 	const areYou = {
@@ -80,7 +78,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 	const Confirm = {
 		type: 'expand',
 		name: 'confirm',
-		message: 'Confirm selection: (generating proj in currentDir)',
+		message: 'Generating proj in currentDir...',
 		choices: [
 			{
 				key: 'y',
@@ -93,7 +91,7 @@ async function Inquire(): Promise<DistinctQuestion> {
 				value: 'change'
 			},
 			{
-				key: 'a',
+				key: 'o',
 				name: 'Overwrite conflicting files (if any)',
 				value: 'overwrite'
 			},

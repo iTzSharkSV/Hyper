@@ -1,24 +1,18 @@
-import Print from '../Modules/Print';
 import Clrs from '../Utils/Clrs';
-import { pTemplate } from '../Inquire';
 
-const { dim, yellow } = Clrs;
+const { dim } = Clrs;
+const logTxt = `
+---------------------------------------------------------
+LANGUAGE          Size(kb)     NAME
+---------------------------------------------------------
+(-)               ${dim('37.5')}	       Jumpstart
+Typescript        ${dim('40.1')}         Node.js Project
+Ts/Sass           ${dim('41.0')}         Static-Web
+Rust-Lang         ${dim('38.1')}         Rust Project ${dim('(Bin, Lib)')}
+Java              ${dim('-')}            Java Project ${dim('(Coming soon)')}
+---------------------------------------------------------
+`;
 
-async function listTemplates(): Promise<void> {
-	try {
-		Print('Info', 'Available templates:');
-
-		for (let i = 0; i < Object.keys(pTemplate).length; i++) {
-			console.log(
-				`${dim(`${i}-`)} ${yellow(Object.values(pTemplate)[i])}`
-			);
-		}
-	} catch (err) {
-		Print('Error', "Error: Couldn't list templates");
-	} finally {
-		// Prints an empty newline
-		console.log('');
-	}
+export default function listTemplates() {
+	console.log(logTxt);
 }
-
-export default listTemplates;

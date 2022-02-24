@@ -1,14 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "es2021",
-		"outDir": "Dist/Js",
-		"rootDir": "Src/Ts",
-		"module": "commonjs",
+		"target": "es6",
+		"outDir": "Build",
+		"rootDir": "Src",
+		"module": "CommonJS",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"esModuleInterop": true,
 		"declaration": false,
-		"allowSyntheticDefaultImports": true,
 		"strict": true,
 
 		// Checks
@@ -21,7 +19,9 @@
 		"traceResolution": false,
 		"listEmittedFiles": false,
 		"listFiles": false,
-		"pretty": true
+		"pretty": true,
+
+		"types": ["node"]
 	},
 	"include": ["Src"],
 	"exclude": ["node_modules"]

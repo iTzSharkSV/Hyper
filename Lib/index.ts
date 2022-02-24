@@ -1,26 +1,26 @@
 import Args from './Args';
-import Init from './Tasks';
 import Inquire from './Inquire';
+import Init from './Tasks/Init';
 import Info from './Modules/Info';
 import Print from './Modules/Print';
 import listTemplates from './Tasks/List';
-import * as updateNotifier from 'update-notifier';
+import { UpdateNotifier } from 'update-notifier';
 
 (async (): Promise<void> => {
 	Info({
 		title: 'Hyper',
 		tagLine: 'by @Shorky',
 		description: 'A Cli to bootstrap new projects',
-		version: 2.4,
+		version: '3.0',
 		clear: true
 	});
 
 	const pkg = {
 		name: '@sharksv/hyper',
-		version: '2.4.1'
+		version: '3.0.0'
 	};
 
-	updateNotifier({
+	new UpdateNotifier({
 		pkg,
 		updateCheckInterval: 0
 	}).notify({ isGlobal: true });
@@ -30,21 +30,20 @@ import * as updateNotifier from 'update-notifier';
 
 	// Cmds
 	input.includes('help') && Args.showHelp(0);
-	input.includes('ls') && listTemplates();
+	input.includes('list') && listTemplates();
 
 	if (input.includes('init')) {
 		const defaultSelection = {
+			confirm: 'yes',
 			aName: 'Someone',
 			projTemplate: 'Node',
-			overWriteFiles: false,
+			pkgManager: 'Npm',
 			gitInit: true,
-			fstCommit: true,
-			pkgManager: 'npm',
-			confirm: 'yes'
+			fstCommit: true
 		};
 
 		const userSelection =
-			flags.default === true
+			flags.skip === true
 				? defaultSelection
 				: {
 						...(await (async () => {

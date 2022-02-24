@@ -5,7 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Berry]
+## [3.0.0]
+
+### Headline
+
+-   Major overhaul to the project templates.
+-   Major refactoring of the codebase.
+
+### Changed
+
+-   Updated docs to better suit the new intended behavior.
+-   Moved unit-tests to mjs for a better stability/format.
+-   Replaced the `--default` flag option with `--skip`
+-   Also replaced `--clear` with the `--keep` option.
+
+## [2.4.1]
+
+-   Fixed a critical bug
+
+## [2.4.0]
+
+### Headline
+
+-   A CI/CD pipeline
+-   A Dockerfile
+-   Major tweaks to the codebase
+
+## [2.3.0]
 
 ### Headline
 

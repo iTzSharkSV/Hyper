@@ -1,55 +1,10 @@
 <img src="https://imgur.com/NjzU6uR.png" width="25px"> `yper`
 
-A CLI to bootstrap new projects!
+`A CLI to bootstrap new projects!`
 
-Generate an Advanced Project Template in seconds.
+> Hyper is a CLI that helps U generate an Advanced Project Template in seconds.
 
-## Available Templates
-
-```Txt
-$ hyper ls
----------------------------------------------------------
-LANGUAGE          Size(kb)     NAME
----------------------------------------------------------
-(-)               14.01        Jumpstart
-Typescript        14.62        Node-Proj
-Javascript        12.01        Static-Web
-Rust-Lang         10.97        Rust-Crate
-Java              -            Java-Proj (Coming soon)
----------------------------------------------------------
-```
-
-## Sample Project Structure
-
-```Txt
-📦 <Node Project>
-├─ .github
-│  ├─ ISSUE_TEMPLATE
-│  │  ├─ BUG_REPORT.md
-│  │  ├─ FEATURE_REQUEST.md
-│  │  └─ PULL_REQUEST_TEMPLATE.md
-│  └─ workflows
-│     └─ CodeQL.yml
-├─ Docs
-│  ├─ CODE_OF_CONDUCT.md
-│  ├─ CONTRIBUTING.md
-│  └─ SECURITY.md
-├─ Src
-│  ├─ Some Folder
-│  │  ├─ File 1
-│  │  └─ File 2
-│  └─ Another Folder Maybe
-│     └─ File 3
-├─ .gitignore
-├─ .eslintrc    # Available within package.json
-├─ .prettierrc  # Available within package.json
-├─ .husky       # Available within package.json
-├─ .travis.yml
-├─ CHANGELOG.md
-├─ Package.json
-├─ README.md
-└─ LICENSE
-```
+---
 
 ## Prerequisites
 
@@ -57,30 +12,35 @@ Java              -            Java-Proj (Coming soon)
 
 ## Installing
 
-### From [`npmjs.com`](https://npmjs.com/package/@sharksv/hyper)
-
 ```bash
 npm install -g @sharksv/hyper
 # or
 yarn global add @sharksv/hyper
 ```
 
-### Compile from source
+`alternatively:`
+
+```bash
+npx @sharksv/hyper init
+```
+
+## Compile from source
 
 ```Txt
 $ git clone https://github.com/iTzSharkSV/Hyper.git
 $ cd Hyper
-$ npm install    # to install project dependencies
-$ npm run build  # to compile the project
-$ npm i -g .     # to add it as a global variable
+$ npm install    # install project dependencies
+$ npm run build  # compile the project
+$ npm i -g .     # add it as a global variable
 ```
 
 ## Usage/Examples
 
 ```Txt
 $ hyper help
+---------------------------------------------------------
 
-Hyper v2.3 by Shorky
+Hyper v3.0 by @Shorky
 A CLI to bootstrap new projects!
 
 USAGE:
@@ -89,21 +49,76 @@ USAGE:
 COMMANDS:
     help          Prints usage-help info
     init          Initialize a new project
-    ls            List available templates
+    list          List available templates
 
 OPTIONS:
-    -c, --clear          Clear Terminal (on by Default)
-    -v, --version        Prints CLI version
-    -y, --default        Roll with default selection
-    -y, --install        Install project dependencies
-    -r, --rainbow        I wonder?!
+    -k, --keep           Keep terminal output (off by Default)
+    -y, --skip           Generate without prompt
+    -i, --install        Install project dependencies
+    -v, --version        Prints CLI version (following semver)
+```
+
+```Txt
+$ hyper init -y
+```
+
+## Available Templates
+
+```Txt
+$ hyper list
+---------------------------------------------------------
+LANGUAGE          Size(kb)     NAME
+---------------------------------------------------------
+(-)               37.5	       Jumpstart
+Typescript        40.1         Node.js Project
+Ts/Sass           41.0         Static-Web
+Rust-Lang         38.1         Rust Project (Bin, Lib)
+Java              -            Java Project (Coming soon)
+---------------------------------------------------------
+```
+
+## Sample Project Tree
+
+```Txt
+📦 <Node Project>
+├─ .circleci
+│  └─ config.yml
+├─ .github
+│  ├─ ISSUE_TEMPLATE
+│  │  ├─ BUG_REPORT.md
+│  │  └─ FEATURE_REQUEST.md
+│  ├─ workflows
+│  │  └─ CodeQL.yml
+│  └─ PULL_REQUEST_TEMPLATE.md
+├─ .husky
+│  └─ pre-commit
+├─ Docs
+│  ├─ CODE_OF_CONDUCT.md
+│  ├─ CONTRIBUTING.md
+│  └─ SECURITY.md
+├─ Src
+│  ├─ Modules
+│  │  ├─ Something.ts
+│  │  └─ Another.ts
+│  └─ index.ts
+├─ Tests
+│  └─ Unit.test.ts
+├─ .gitignore
+├─ .eslintrc    # Available within package.json
+├─ .prettierrc  # Available within package.json
+├─ Dockerfile
+├─ CHANGELOG.md
+├─ README.md
+├─ package.json
+├─ tsconfig.json
+└─ LICENSE
 ```
 
 ## License
 
 ```Txt
 #
-# Copyright 2021 - SharkSV
+# Copyright 2021-Present @SharkSV
 # License Identifier: MIT
 #
 ```
