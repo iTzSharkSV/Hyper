@@ -7,12 +7,15 @@ import listTemplates from './Tasks/List';
 import { UpdateNotifier } from 'update-notifier';
 
 (async (): Promise<void> => {
+	const input: string[] = Args.input;
+	const flags = Args.flags;
+
 	Info({
 		title: 'Hyper',
 		tagLine: 'by @Shorky',
 		description: 'A Cli to bootstrap new projects',
 		version: '3.0',
-		clear: true
+		clear: flags.keep ? false : true
 	});
 
 	const pkg = {
@@ -24,9 +27,6 @@ import { UpdateNotifier } from 'update-notifier';
 		pkg,
 		updateCheckInterval: 0
 	}).notify({ isGlobal: true });
-
-	const input: string[] = Args.input;
-	const flags = Args.flags;
 
 	// Cmds
 	input.includes('help') && Args.showHelp(0);

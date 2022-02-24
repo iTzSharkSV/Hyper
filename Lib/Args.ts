@@ -21,11 +21,11 @@ ${gray('$')} ${green('hyper')} ${cyan('<commands>')} ${yellow('[options]')}
 ${bgCyan(` COMMANDS `)}\n
 ${cyan('help')}   ${dim('Print help info')}
 ${cyan('init')}   ${dim('Initialize a new project')}
-${cyan('list')}     ${dim('List available templates')}
+${cyan('list')}   ${dim('List available templates')}
 
 ${bgYellow(` OPTIONS `)}\n
 ${yellow('-k, --keep')}      ${dim('Keep terminal output ')} ${gray('(off by Default)')}
-${yellow('-y, --skip')}   	 ${dim('Generate without prompt')}
+${yellow('-y, --skip')}      ${dim('Generate without prompt')}
 ${yellow('-i, --install')}   ${dim('Install dependencies')}
 ${yellow('-v, --version')}   ${dim('Print Cli version')} ${gray('(following semver)')}
 `;
@@ -34,7 +34,7 @@ const Args = meow(helpTxt, {
 	flags: {
 		keep: {
 			type: 'boolean',
-			default: true,
+			default: false,
 			alias: 'k',
 			description: 'Keep terminal output'
 		},
