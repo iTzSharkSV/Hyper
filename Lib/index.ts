@@ -11,13 +11,13 @@ import { UpdateNotifier } from 'update-notifier';
 		title: 'Hyper',
 		tagLine: 'by @Shorky',
 		description: 'A Cli to bootstrap new projects',
-		version: '3.0-Beta',
+		version: '3.0',
 		clear: true
 	});
 
 	const pkg = {
 		name: '@sharksv/hyper',
-		version: '3.0.0-beta.1'
+		version: '3.0.0'
 	};
 
 	new UpdateNotifier({
