@@ -12,10 +12,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Major overhaul to the project templates.
 -   Major refactoring of the codebase.
 
-### Added
-
--   New prompt for rust projects (Bin/Lib).
-
 ### Changed
 
 -   Updated docs to better suit the new intended behavior.
