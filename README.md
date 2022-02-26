@@ -70,9 +70,9 @@ $ hyper list
 LANGUAGE          Size(kb)     NAME
 ---------------------------------------------------------
 (-)               37.5	       Jumpstart
-Typescript        40.1         Node.js Project
 Ts/Sass           41.0         Static-Web
-Rust-Lang         38.1         Rust Project (Bin, Lib)
+Typescript        40.1         Node Project
+Rust-Lang         38.1         Rust Project
 Java              -            Java Project (Coming soon)
 ---------------------------------------------------------
 ```
@@ -118,7 +118,7 @@ Java              -            Java Project (Coming soon)
 
 ```Txt
 #
-# Copyright 2021-Present @SharkSV
+# Copyright 2021 @SharkSV
 # License Identifier: MIT
 #
 ```
