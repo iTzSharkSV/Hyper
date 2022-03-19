@@ -12,16 +12,16 @@
 
 ## Installing
 
-```bash
+```Bash
 npm install -g @sharksv/hyper
-# or
+// or
 yarn global add @sharksv/hyper
 ```
 
 `alternatively:`
 
-```bash
-npx @sharksv/hyper init
+```Txt
+npx @sharksv/hyper <command> [options]
 ```
 
 ## Compile from source
@@ -29,14 +29,15 @@ npx @sharksv/hyper init
 ```Txt
 $ git clone https://github.com/iTzSharkSV/Hyper.git
 $ cd Hyper
-$ npm install    # install project dependencies
-$ npm run build  # compile the project
-$ npm i -g .     # add it as a global variable
+$ npm install    // install project dependencies
+$ npm run build  // compile project
+$ npm i -g .     // add as a global variable
 ```
 
 ## Usage/Examples
 
 ```Txt
+@example: Help info
 $ hyper help
 ---------------------------------------------------------
 
@@ -59,7 +60,35 @@ OPTIONS:
 ```
 
 ```Txt
+@example: Initializing a project
 $ hyper init -y
+-------------------
+// prompt skipped (-y, --skip)
+some magic goes here,
+& some here...
+voila!
+```
+
+## The Why?
+
+```Txt
+Why use Hyper-CLI instead of starting-fresh?
+-------------------------------------------------------
+  - Faster
+  - Easier
+  - Up-with Community Standards
+  - Besides being Well-Put & Organized
+```
+
+```Txt
+Why not just use a template?
+------------------------------------
+
+Orignally, starting-fresh or using a template was my-go-2 option, but...
+The time wasted looking for a generic, minimalistic yet well-put template
+-for every project I wanted to start was a bit too much.
+Here aroused the motivation to create `Hyper`.
+Hyper is a CLI that helps U bootstrap new projects!
 ```
 
 ## Available Templates
