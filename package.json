@@ -23,15 +23,8 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"author": {
-		"name": "SharkSV",
-		"email": "SharkSV@outlook.com",
-		"url": "https://github.com/iTzSharkSV"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/iTzSharkSV/Hyper.git"
-	},
+	"author": "Shorky <SharkSV@outlook.com>",
+	"repository": "github:iTzSharkSV/Hyper",
 	"license": "MIT",
 	"scripts": {
 		"prepare": "husky install",
@@ -70,11 +63,6 @@
 			"Cli",
 			"node_modules"
 		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run prepublish"
-		}
 	},
 	"dependencies": {
 		"chalk": "4.1.2",
